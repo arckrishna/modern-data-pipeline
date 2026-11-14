@@ -331,11 +331,11 @@ with st.sidebar:
     st.divider()
 
     st.markdown("#### ⚡ Quick Preset Questions")
-    btn_q1 = st.button("🏆 1. Which product has highest revenue?", use_container_width=True)
-    btn_q2 = st.button("🌍 2. Which region records highest sales?", use_container_width=True)
-    btn_q3 = st.button("📈 3. How does revenue change month by month?", use_container_width=True)
-    btn_q4 = st.button("📦 4. Revenue breakdown by category?", use_container_width=True)
-    btn_q5 = st.button("💳 5. Payment status breakdown?", use_container_width=True)
+    btn_q1 = st.button("🏆 1. Which product has highest revenue?", width='stretch')
+    btn_q2 = st.button("🌍 2. Which region records highest sales?", width='stretch')
+    btn_q3 = st.button("📈 3. How does revenue change month by month?", width='stretch')
+    btn_q4 = st.button("📦 4. Revenue breakdown by category?", width='stretch')
+    btn_q5 = st.button("💳 5. Payment status breakdown?", width='stretch')
     
     st.divider()
     st.caption("RetailFlow v2.0 | Connected to `warehouse/retail_dw.duckdb`")
@@ -397,10 +397,10 @@ with tab_bi:
             with st.chat_message(msg["role"]):
                 st.markdown(msg["content"])
                 if msg.get("chart"):
-                    st.plotly_chart(msg["chart"], use_container_width=True)
+                    st.plotly_chart(msg["chart"], width='stretch')
                 if msg.get("df") is not None:
                     with st.expander("🔍 View Tabular Data", expanded=False):
-                        st.dataframe(msg["df"], use_container_width=True)
+                        st.dataframe(msg["df"], width='stretch')
 
         user_input = st.chat_input("Ask a business question (e.g., 'Which product has the highest revenue?')...")
         active_query = selected_prompt or user_input
@@ -507,10 +507,10 @@ Category breakdown shows **{df.iloc[0]['category']}** generating the largest mar
                     st.markdown(answer)
                     
                     if fig:
-                        st.plotly_chart(fig, use_container_width=True)
+                        st.plotly_chart(fig, width='stretch')
                     
                     with st.expander("🔍 View Tabular Data", expanded=True):
-                        st.dataframe(df, use_container_width=True)
+                        st.dataframe(df, width='stretch')
 
                     # Save to state
                     st.session_state.messages.append({
@@ -568,7 +568,7 @@ with tab_dwh:
     
     st.caption(f"ℹ️ **Description:** {table_desc}")
     st.markdown(f"**Query Executed:** `{query}` | **Retrieved:** `{total_in_tbl} rows`")
-    st.dataframe(df_view, use_container_width=True)
+    st.dataframe(df_view, width='stretch')
 
 # ---------------------------------------------------------------------------
 # TAB 3: AIRFLOW DAG ORCHESTRATOR MONITOR
@@ -592,7 +592,7 @@ start >> trigger_airbyte_ingestion >> wait_for_ingestion_sync
     with col_dag_run:
         st.markdown("#### Run Pipeline")
         st.caption("Click to trigger a manual DAG run and view execution logs.")
-        run_btn = st.button("🚀 Trigger Airflow DAG Run", use_container_width=True)
+        run_btn = st.button("🚀 Trigger Airflow DAG Run", width='stretch')
 
     if run_btn:
         with st.status("Executing Airflow DAG Tasks in Sequence...", expanded=True) as status:
