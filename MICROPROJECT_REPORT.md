@@ -86,63 +86,7 @@ ORD-1005,2024-07-02,CUST-156,USB-C Multi-Port Hub,Accessories,Asia Pacific,1,46.
 
 # 4. Pipeline Architecture Diagram
 
-```mermaid
-flowchart TD
-    subgraph SRC["1. Source Layer"]
-        CSV["Raw Retail CSV / DB\n(retail_sales_raw.csv)\n500 records"]
-    end
-
-    subgraph ING["2. Ingestion Tool (Airbyte / Fivetran)"]
-        AIRBYTE["Airbyte Sync Engine\n(Full Refresh / Append)"]
-    end
-
-    subgraph DWH["3. Target Warehouse (Snowflake / BigQuery / DuckDB)"]
-        subgraph BRONZE["Bronze / Raw Layer"]
-            RAW_TBL["retail_raw.raw_retail_sales\nRaw Ingested Records"]
-        end
-        subgraph SILVER["Silver / Staging Layer"]
-            STG_VW["retail_staging.stg_retail_sales\n(Cleaned View, Cast Types, Calculated Revenue)"]
-        end
-        subgraph GOLD["Gold / Analytics Layer (dbt Marts)"]
-            MART1["dim_products_sales\n(Product Revenue Rankings)"]
-            MART2["dim_regional_performance\n(Regional Breakdown & AOV)"]
-            MART3["fct_sales_monthly\n(Monthly Trends & MoM Growth)"]
-        end
-    end
-
-    subgraph TRANS["4. Transformation & Quality Testing (dbt)"]
-        DBT_MODELS["dbt Models (SQL)"]
-        DBT_TESTS["dbt Schema Tests\n(unique, not_null, accepted_values)"]
-    end
-
-    subgraph ORCH["5. Orchestration (Apache Airflow)"]
-        AIRFLOW_DAG["DAG: retail_modern_data_pipeline\nstart >> trigger_ingestion >> wait_sync >> dbt_staging >> dbt_test >> dbt_marts >> validate >> finish"]
-    end
-
-    subgraph BI["6. Consumption (Conversational BI)"]
-        STREAMLIT["Streamlit Web Interface\n(Natural Language to SQL Engine)"]
-        USER["End User / Sales Director\nQueries via Chat UI"]
-    end
-
-    %% Data Movement Flow
-    CSV -->|Extract & Ingest| AIRBYTE
-    AIRBYTE -->|Load Raw| RAW_TBL
-    RAW_TBL -->|Clean & Standardize| STG_VW
-    STG_VW -->|Transform & Aggregate| MART1
-    STG_VW -->|Transform & Aggregate| MART2
-    STG_VW -->|Transform & Aggregate| MART3
-    
-    MART1 -->|Serve Aggregates| STREAMLIT
-    MART2 -->|Serve Aggregates| STREAMLIT
-    MART3 -->|Serve Aggregates| STREAMLIT
-    USER <-->|Ask Questions / View Insights| STREAMLIT
-
-    %% Airflow Orchestration Dependency Controls
-    AIRFLOW_DAG -.->|1. Trigger Sync| AIRBYTE
-    AIRFLOW_DAG -.->|2. Trigger Staging & Marts| DBT_MODELS
-    AIRFLOW_DAG -.->|3. Execute Data Tests| DBT_TESTS
-    AIRFLOW_DAG -.->|4. Verify Table Counts| DWH
-```
+![Modern Automated Data Pipeline Architecture](docs/architecture_diagram.png)
 
 > **Architecture Clarification:**  
 > In accordance with project requirements, **Apache Airflow functions strictly as the orchestration coordinator** managing task triggers, state dependencies, retries, and data assertions. Airflow does not transfer or transform payload data directly; Airbyte handles data movement from source to warehouse, and dbt compiles and executes in-warehouse ELT transformations.

@@ -632,7 +632,8 @@ start >> trigger_airbyte_ingestion >> wait_for_ingestion_sync
 # TAB 4: PROJECT GUIDELINES & VIVA GUIDE
 # ---------------------------------------------------------------------------
 with tab_docs:
-    st.markdown("### 📚 Microproject Viva Guide & Technical Checklist")
+    st.markdown("### 📚 Architecture Diagram, Guidelines & Viva Guide")
+    st.image("docs/architecture_diagram.png", caption="Modern Automated Data Pipeline Architecture (Airflow + Airbyte + dbt + Cloud DWH + Streamlit)", width='stretch')
     
     st.markdown("#### 1. Alignment with Guidelines Criteria")
     criteria = [

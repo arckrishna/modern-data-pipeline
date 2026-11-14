@@ -15,63 +15,7 @@ This project implements an enterprise-grade **Modern Data Stack (MDS)** automate
 
 Airflow coordinates tasks and dependencies, while data movement is handled by Airbyte and transformation by dbt in-warehouse:
 
-```mermaid
-flowchart TD
-    subgraph S1["1. Source Layer"]
-        CSV["Raw Retail CSV / DB\n(retail_sales_raw.csv)\n500 records"]
-    end
-
-    subgraph S2["2. Ingestion Layer (Airbyte / Fivetran)"]
-        AIRBYTE["Airbyte Ingestion Engine\n(Full Refresh / Append)"]
-    end
-
-    subgraph S3["3. Target Warehouse (Snowflake / BigQuery / DuckDB)"]
-        subgraph RAW["Medallion: Bronze"]
-            RAW_TBL["retail_raw.raw_retail_sales\nRaw Ingested Records"]
-        end
-        subgraph STG["Medallion: Silver"]
-            STG_VW["retail_staging.stg_retail_sales\nCleaned, Typed & Tested View"]
-        end
-        subgraph MARTS["Medallion: Gold"]
-            MART1["dim_products_sales\n(Product Revenue & Rank)"]
-            MART2["dim_regional_performance\n(Regional Performance & AOV)"]
-            MART3["fct_sales_monthly\n(Monthly Trends & MoM Growth)"]
-        end
-    end
-
-    subgraph S4["4. Data Transformation (dbt)"]
-        DBT_RUN["dbt Staging & Marts Models"]
-        DBT_TEST["dbt Data Quality Tests\n(unique, not_null, accepted_values)"]
-    end
-
-    subgraph S5["5. Orchestration (Apache Airflow DAG)"]
-        DAG["Airflow DAG: retail_modern_data_pipeline\nstart -> trigger_ingestion -> wait_sync -> dbt_staging -> dbt_test -> dbt_marts -> validate -> finish"]
-    end
-
-    subgraph S6["6. Consumption Layer (Conversational BI)"]
-        ST["Streamlit Conversational BI\n(Natural Language to SQL Engine)"]
-        BI_USER["Business User / Sales Manager\nQuery: 'Which product generated highest revenue?'"]
-    end
-
-    CSV --> AIRBYTE
-    AIRBYTE --> RAW_TBL
-    RAW_TBL --> STG_VW
-    STG_VW --> DBT_RUN
-    DBT_RUN --> MART1
-    DBT_RUN --> MART2
-    DBT_RUN --> MART3
-    DBT_RUN -.-> DBT_TEST
-    
-    MART1 --> ST
-    MART2 --> ST
-    MART3 --> ST
-    BI_USER <--> ST
-
-    %% Airflow Orchestration Controls
-    DAG -.->|Controls Ingestion| AIRBYTE
-    DAG -.->|Triggers Transformations| DBT_RUN
-    DAG -.->|Runs Quality Checks| DBT_TEST
-```
+![Modern Automated Data Pipeline Architecture](docs/architecture_diagram.png)
 
 ---
 
