@@ -1,0 +1,501 @@
+order_id,order_date,customer_id,product,category,region,quantity,unit_price,payment_status
+ORD-1001,2024-03-12,CUST-129,Laptop Pro 15,Electronics,Asia Pacific,1,1219.67,Refunded
+ORD-1002,2024-02-17,CUST-240,UltraHD 4K Monitor,Electronics,North America,1,378.27,Pending
+ORD-1003,2024-10-06,CUST-107,HD Webcam 1080p,Accessories,Europe,2,75.66,Completed
+ORD-1004,2024-08-04,CUST-172,Laptop Pro 15,Electronics,North America,1,1222.36,Completed
+ORD-1005,2024-07-02,CUST-156,USB-C Multi-Port Hub,Accessories,Asia Pacific,1,46.66,Pending
+ORD-1006,2024-07-12,CUST-168,Laptop Pro 15,Electronics,North America,2,1217.83,Completed
+ORD-1007,2024-12-04,CUST-193,Portable SSD 1TB,Electronics,North America,1,103.94,Completed
+ORD-1008,2024-08-20,CUST-121,Mechanical Gaming Keyboard,Peripherals,Europe,1,133.21,Completed
+ORD-1009,2024-12-25,CUST-142,USB-C Multi-Port Hub,Accessories,Latin America,2,48.3,Refunded
+ORD-1010,2024-05-05,CUST-119,Portable SSD 1TB,Electronics,North America,2,110.27,Completed
+ORD-1011,2024-01-29,CUST-170,HD Webcam 1080p,Accessories,North America,1,75.87,Completed
+ORD-1012,2024-10-17,CUST-181,Wireless Ergonomic Mouse,Peripherals,Asia Pacific,1,57.24,Completed
+ORD-1013,2024-08-22,CUST-155,Height-Adjustable Standing Desk,Furniture,North America,4,436.17,Completed
+ORD-1014,2024-08-07,CUST-164,HD Webcam 1080p,Accessories,Asia Pacific,3,79.2,Completed
+ORD-1015,2024-09-09,CUST-193,Mechanical Gaming Keyboard,Peripherals,North America,1,135.41,Completed
+ORD-1016,2024-08-04,CUST-129,Wireless Noise-Canceling Headphones,Accessories,Europe,3,190.29,Completed
+ORD-1017,2024-10-10,CUST-198,Portable SSD 1TB,Electronics,Asia Pacific,2,115.43,Completed
+ORD-1018,2024-06-23,CUST-130,HD Webcam 1080p,Accessories,North America,3,81.4,Completed
+ORD-1019,2024-05-14,CUST-141,Height-Adjustable Standing Desk,Furniture,Latin America,3,413.27,Completed
+ORD-1020,2024-11-23,CUST-230,UltraHD 4K Monitor,Electronics,Europe,1,392.09,Completed
+ORD-1021,2024-09-28,CUST-140,USB-C Multi-Port Hub,Accessories,Latin America,2,50.95,Pending
+ORD-1022,2024-06-06,CUST-183,Height-Adjustable Standing Desk,Furniture,North America,4,414.22,Completed
+ORD-1023,2024-02-05,CUST-246,UltraHD 4K Monitor,Electronics,Latin America,2,353.37,Pending
+ORD-1024,2024-03-25,CUST-133,Wireless Noise-Canceling Headphones,Accessories,North America,5,191.09,Pending
+ORD-1025,2024-12-19,CUST-209,Mechanical Gaming Keyboard,Peripherals,North America,3,134.26,Completed
+ORD-1026,2024-03-02,CUST-203,USB-C Multi-Port Hub,Accessories,North America,2,48.84,Completed
+ORD-1027,2024-04-22,CUST-187,Laptop Pro 15,Electronics,North America,1,1195.77,Refunded
+ORD-1028,2024-06-18,CUST-116,Mechanical Gaming Keyboard,Peripherals,North America,1,119.81,Completed
+ORD-1029,2024-10-19,CUST-172,Height-Adjustable Standing Desk,Furniture,Europe,1,425.59,Completed
+ORD-1030,2024-08-08,CUST-222,Wireless Ergonomic Mouse,Peripherals,North America,1,56.64,Completed
+ORD-1031,2024-02-20,CUST-220,Laptop Pro 15,Electronics,North America,8,1209.03,Refunded
+ORD-1032,2024-08-17,CUST-187,UltraHD 4K Monitor,Electronics,North America,1,361.41,Completed
+ORD-1033,2024-08-14,CUST-172,Height-Adjustable Standing Desk,Furniture,Asia Pacific,4,427.66,Pending
+ORD-1034,2024-01-08,CUST-126,Laptop Pro 15,Electronics,Latin America,2,1205.72,Completed
+ORD-1035,2024-07-24,CUST-143,Wireless Ergonomic Mouse,Peripherals,Latin America,1,58.94,Completed
+ORD-1036,2024-08-20,CUST-198,Laptop Pro 15,Electronics,North America,1,1257.7,Refunded
+ORD-1037,2024-01-30,CUST-243,Height-Adjustable Standing Desk,Furniture,Europe,1,422.12,Pending
+ORD-1038,2024-09-14,CUST-116,USB-C Multi-Port Hub,Accessories,Latin America,2,46.36,Pending
+ORD-1039,2024-04-05,CUST-141,Laptop Pro 15,Electronics,North America,1,1253.87,Completed
+ORD-1040,2024-05-06,CUST-161,Wireless Ergonomic Mouse,Peripherals,Europe,4,56.09,Completed
+ORD-1041,2024-06-10,CUST-121,Wireless Ergonomic Mouse,Peripherals,Latin America,2,60.28,Completed
+ORD-1042,2024-11-26,CUST-181,Mechanical Gaming Keyboard,Peripherals,North America,1,123.13,Completed
+ORD-1043,2024-02-21,CUST-119,Laptop Pro 15,Electronics,North America,8,1175.48,Completed
+ORD-1044,2024-02-05,CUST-230,Ergonomic Office Chair,Furniture,Asia Pacific,1,234.3,Completed
+ORD-1045,2024-06-03,CUST-173,Wireless Noise-Canceling Headphones,Accessories,Europe,2,185.61,Refunded
+ORD-1046,2024-12-05,CUST-236,Laptop Pro 15,Electronics,North America,2,1208.18,Completed
+ORD-1047,2024-03-20,CUST-168,UltraHD 4K Monitor,Electronics,North America,3,393.03,Pending
+ORD-1048,2024-05-15,CUST-154,USB-C Multi-Port Hub,Accessories,Europe,2,47.31,Completed
+ORD-1049,2024-01-23,CUST-114,UltraHD 4K Monitor,Electronics,North America,3,380.43,Completed
+ORD-1050,2024-08-06,CUST-168,Wireless Noise-Canceling Headphones,Accessories,Europe,2,193.1,Completed
+ORD-1051,2024-10-25,CUST-120,Wireless Noise-Canceling Headphones,Accessories,Europe,3,188.27,Completed
+ORD-1052,2024-01-21,CUST-133,Laptop Pro 15,Electronics,Asia Pacific,4,1152.08,Completed
+ORD-1053,2024-07-27,CUST-164,UltraHD 4K Monitor,Electronics,Latin America,2,366.59,Refunded
+ORD-1054,2024-03-31,CUST-140,Mechanical Gaming Keyboard,Peripherals,Asia Pacific,5,133.18,Completed
+ORD-1055,2024-12-08,CUST-146,USB-C Multi-Port Hub,Accessories,Asia Pacific,1,51.08,Completed
+ORD-1056,2024-01-20,CUST-169,Wireless Noise-Canceling Headphones,Accessories,Asia Pacific,1,194.24,Completed
+ORD-1057,2024-04-26,CUST-152,Height-Adjustable Standing Desk,Furniture,North America,3,433.49,Refunded
+ORD-1058,2024-05-22,CUST-150,Wireless Ergonomic Mouse,Peripherals,North America,4,57.71,Pending
+ORD-1059,2024-05-13,CUST-203,HD Webcam 1080p,Accessories,North America,1,77.03,Completed
+ORD-1060,2024-06-09,CUST-110,UltraHD 4K Monitor,Electronics,Europe,1,378.57,Pending
+ORD-1061,2024-01-23,CUST-130,Wireless Ergonomic Mouse,Peripherals,Asia Pacific,1,62.16,Completed
+ORD-1062,2024-12-09,CUST-234,HD Webcam 1080p,Accessories,North America,5,80.73,Completed
+ORD-1063,2024-03-04,CUST-118,USB-C Multi-Port Hub,Accessories,Asia Pacific,2,50.04,Completed
+ORD-1064,2024-12-22,CUST-230,Ergonomic Office Chair,Furniture,North America,1,251.66,Completed
+ORD-1065,2024-03-30,CUST-150,Wireless Ergonomic Mouse,Peripherals,Europe,1,60.34,Completed
+ORD-1066,2024-04-17,CUST-204,HD Webcam 1080p,Accessories,Europe,1,82.26,Pending
+ORD-1067,2024-09-18,CUST-183,Height-Adjustable Standing Desk,Furniture,Europe,2,438.87,Refunded
+ORD-1068,2024-11-13,CUST-144,UltraHD 4K Monitor,Electronics,North America,2,363.14,Completed
+ORD-1069,2024-01-24,CUST-180,Mechanical Gaming Keyboard,Peripherals,North America,1,132.21,Completed
+ORD-1070,2024-04-09,CUST-119,Height-Adjustable Standing Desk,Furniture,Asia Pacific,2,437.27,Completed
+ORD-1071,2024-01-03,CUST-227,Wireless Ergonomic Mouse,Peripherals,Asia Pacific,2,57.06,Completed
+ORD-1072,2024-09-22,CUST-209,Mechanical Gaming Keyboard,Peripherals,Europe,5,121.63,Pending
+ORD-1073,2024-12-07,CUST-164,UltraHD 4K Monitor,Electronics,Europe,3,371.66,Pending
+ORD-1074,2024-09-15,CUST-182,Height-Adjustable Standing Desk,Furniture,Europe,3,448.84,Pending
+ORD-1075,2024-05-12,CUST-215,Wireless Noise-Canceling Headphones,Accessories,Asia Pacific,2,193.16,Refunded
+ORD-1076,2024-08-13,CUST-171,HD Webcam 1080p,Accessories,North America,1,78.63,Completed
+ORD-1077,2024-02-11,CUST-161,Ergonomic Office Chair,Furniture,North America,4,240.91,Completed
+ORD-1078,2024-07-27,CUST-199,Wireless Noise-Canceling Headphones,Accessories,North America,1,192.24,Completed
+ORD-1079,2024-10-26,CUST-207,Laptop Pro 15,Electronics,Latin America,1,1136.26,Completed
+ORD-1080,2024-06-01,CUST-248,Wireless Ergonomic Mouse,Peripherals,Asia Pacific,5,58.87,Completed
+ORD-1081,2024-09-06,CUST-238,HD Webcam 1080p,Accessories,North America,4,81.91,Completed
+ORD-1082,2024-07-26,CUST-225,Laptop Pro 15,Electronics,Asia Pacific,2,1164.65,Completed
+ORD-1083,2024-10-30,CUST-133,Portable SSD 1TB,Electronics,Europe,4,108.83,Completed
+ORD-1084,2024-01-26,CUST-122,Wireless Ergonomic Mouse,Peripherals,North America,2,56.21,Completed
+ORD-1085,2024-07-13,CUST-155,Height-Adjustable Standing Desk,Furniture,North America,3,432.16,Completed
+ORD-1086,2024-01-27,CUST-165,UltraHD 4K Monitor,Electronics,Latin America,3,372.34,Completed
+ORD-1087,2024-01-16,CUST-158,UltraHD 4K Monitor,Electronics,Latin America,2,387.68,Completed
+ORD-1088,2024-12-08,CUST-106,Portable SSD 1TB,Electronics,North America,1,103.37,Completed
+ORD-1089,2024-11-06,CUST-220,Ergonomic Office Chair,Furniture,Latin America,1,254.91,Refunded
+ORD-1090,2024-01-14,CUST-130,Wireless Noise-Canceling Headphones,Accessories,Latin America,1,198.62,Pending
+ORD-1091,2024-10-30,CUST-197,Wireless Ergonomic Mouse,Peripherals,Asia Pacific,1,62.49,Refunded
+ORD-1092,2024-12-16,CUST-163,UltraHD 4K Monitor,Electronics,Europe,1,383.54,Completed
+ORD-1093,2024-07-08,CUST-245,Laptop Pro 15,Electronics,North America,1,1158.15,Refunded
+ORD-1094,2024-02-24,CUST-188,Laptop Pro 15,Electronics,Europe,3,1236.52,Completed
+ORD-1095,2024-11-29,CUST-218,Wireless Noise-Canceling Headphones,Accessories,North America,3,185.55,Pending
+ORD-1096,2024-05-17,CUST-224,Height-Adjustable Standing Desk,Furniture,North America,3,438.5,Completed
+ORD-1097,2024-08-25,CUST-123,Ergonomic Office Chair,Furniture,Europe,1,258.64,Refunded
+ORD-1098,2024-04-03,CUST-198,USB-C Multi-Port Hub,Accessories,Europe,4,46.18,Completed
+ORD-1099,2024-05-21,CUST-167,USB-C Multi-Port Hub,Accessories,Europe,2,47.81,Pending
+ORD-1100,2024-10-11,CUST-149,UltraHD 4K Monitor,Electronics,Asia Pacific,1,361.05,Refunded
+ORD-1101,2024-05-30,CUST-222,Height-Adjustable Standing Desk,Furniture,North America,1,439.24,Refunded
+ORD-1102,2024-10-10,CUST-163,Ergonomic Office Chair,Furniture,Europe,1,251.57,Completed
+ORD-1103,2024-06-05,CUST-241,USB-C Multi-Port Hub,Accessories,North America,2,48.28,Completed
+ORD-1104,2024-12-19,CUST-150,USB-C Multi-Port Hub,Accessories,North America,2,46.77,Completed
+ORD-1105,2024-09-25,CUST-224,Ergonomic Office Chair,Furniture,Europe,5,253.54,Completed
+ORD-1106,2024-01-08,CUST-150,Ergonomic Office Chair,Furniture,Asia Pacific,1,237.38,Completed
+ORD-1107,2024-12-23,CUST-171,Laptop Pro 15,Electronics,Latin America,2,1255.98,Refunded
+ORD-1108,2024-08-28,CUST-226,UltraHD 4K Monitor,Electronics,Europe,2,392.2,Completed
+ORD-1109,2024-02-28,CUST-148,Laptop Pro 15,Electronics,Asia Pacific,4,1143.38,Completed
+ORD-1110,2024-03-18,CUST-226,UltraHD 4K Monitor,Electronics,North America,2,377.61,Pending
+ORD-1111,2024-08-01,CUST-178,UltraHD 4K Monitor,Electronics,Europe,1,398.17,Pending
+ORD-1112,2024-06-01,CUST-158,HD Webcam 1080p,Accessories,Asia Pacific,4,77.55,Completed
+ORD-1113,2024-02-20,CUST-179,Portable SSD 1TB,Electronics,Latin America,2,110.07,Completed
+ORD-1114,2024-03-29,CUST-155,Ergonomic Office Chair,Furniture,Europe,1,251.45,Completed
+ORD-1115,2024-05-29,CUST-101,Wireless Ergonomic Mouse,Peripherals,North America,2,58.67,Completed
+ORD-1116,2024-05-15,CUST-173,Height-Adjustable Standing Desk,Furniture,Asia Pacific,1,417.23,Refunded
+ORD-1117,2024-03-17,CUST-151,Wireless Ergonomic Mouse,Peripherals,Latin America,1,56.05,Completed
+ORD-1118,2024-10-18,CUST-119,Laptop Pro 15,Electronics,Latin America,1,1129.87,Completed
+ORD-1119,2024-05-19,CUST-132,Height-Adjustable Standing Desk,Furniture,Europe,2,453.28,Completed
+ORD-1120,2024-06-14,CUST-213,UltraHD 4K Monitor,Electronics,Europe,4,378.64,Completed
+ORD-1121,2024-10-21,CUST-124,Mechanical Gaming Keyboard,Peripherals,Europe,3,134.81,Completed
+ORD-1122,2024-08-28,CUST-169,Portable SSD 1TB,Electronics,Europe,3,101.77,Completed
+ORD-1123,2024-09-08,CUST-172,Wireless Noise-Canceling Headphones,Accessories,Latin America,1,199.41,Completed
+ORD-1124,2024-03-23,CUST-190,Wireless Ergonomic Mouse,Peripherals,North America,2,57.75,Refunded
+ORD-1125,2024-10-08,CUST-227,Ergonomic Office Chair,Furniture,North America,1,251.52,Completed
+ORD-1126,2024-07-25,CUST-181,Ergonomic Office Chair,Furniture,Asia Pacific,5,240.5,Completed
+ORD-1127,2024-07-04,CUST-239,Height-Adjustable Standing Desk,Furniture,Europe,1,437.2,Completed
+ORD-1128,2024-05-27,CUST-214,Laptop Pro 15,Electronics,Europe,2,1135.75,Refunded
+ORD-1129,2024-05-02,CUST-225,UltraHD 4K Monitor,Electronics,Asia Pacific,2,350.56,Completed
+ORD-1130,2024-02-28,CUST-242,Laptop Pro 15,Electronics,Europe,1,1190.14,Completed
+ORD-1131,2024-12-27,CUST-140,Height-Adjustable Standing Desk,Furniture,North America,1,467.52,Completed
+ORD-1132,2024-04-07,CUST-221,Mechanical Gaming Keyboard,Peripherals,Latin America,1,126.34,Pending
+ORD-1133,2024-07-31,CUST-135,UltraHD 4K Monitor,Electronics,North America,3,362.77,Pending
+ORD-1134,2024-10-27,CUST-169,Laptop Pro 15,Electronics,Europe,1,1148.11,Refunded
+ORD-1135,2024-06-19,CUST-226,Wireless Noise-Canceling Headphones,Accessories,Europe,2,185.82,Pending
+ORD-1136,2024-12-23,CUST-197,Height-Adjustable Standing Desk,Furniture,North America,4,467.53,Completed
+ORD-1137,2024-12-27,CUST-160,Wireless Ergonomic Mouse,Peripherals,Latin America,3,55.49,Completed
+ORD-1138,2024-09-14,CUST-199,Wireless Noise-Canceling Headphones,Accessories,Latin America,1,187.02,Completed
+ORD-1139,2024-01-08,CUST-126,Height-Adjustable Standing Desk,Furniture,Asia Pacific,4,418.9,Completed
+ORD-1140,2024-06-22,CUST-140,UltraHD 4K Monitor,Electronics,Europe,5,372.3,Completed
+ORD-1141,2024-07-13,CUST-121,USB-C Multi-Port Hub,Accessories,Latin America,4,51.53,Refunded
+ORD-1142,2024-11-19,CUST-225,HD Webcam 1080p,Accessories,Asia Pacific,1,73.96,Completed
+ORD-1143,2024-11-20,CUST-159,UltraHD 4K Monitor,Electronics,Asia Pacific,1,370.55,Completed
+ORD-1144,2024-01-24,CUST-214,Wireless Noise-Canceling Headphones,Accessories,North America,4,191.93,Completed
+ORD-1145,2024-09-28,CUST-176,USB-C Multi-Port Hub,Accessories,Europe,1,48.43,Refunded
+ORD-1146,2024-07-14,CUST-147,Wireless Noise-Canceling Headphones,Accessories,Europe,2,179.11,Completed
+ORD-1147,2024-05-10,CUST-228,Portable SSD 1TB,Electronics,Europe,2,103.24,Refunded
+ORD-1148,2024-03-21,CUST-103,Height-Adjustable Standing Desk,Furniture,North America,2,465.68,Completed
+ORD-1149,2024-06-03,CUST-177,Wireless Ergonomic Mouse,Peripherals,North America,2,60.53,Completed
+ORD-1150,2024-10-21,CUST-224,UltraHD 4K Monitor,Electronics,North America,2,360.84,Refunded
+ORD-1151,2024-05-20,CUST-176,Laptop Pro 15,Electronics,North America,2,1256.55,Refunded
+ORD-1152,2024-05-26,CUST-113,Portable SSD 1TB,Electronics,Asia Pacific,3,111.85,Completed
+ORD-1153,2024-12-13,CUST-191,Mechanical Gaming Keyboard,Peripherals,Asia Pacific,2,129.36,Refunded
+ORD-1154,2024-06-07,CUST-136,UltraHD 4K Monitor,Electronics,Asia Pacific,2,393.71,Completed
+ORD-1155,2024-05-31,CUST-249,USB-C Multi-Port Hub,Accessories,North America,1,50.75,Completed
+ORD-1156,2024-07-06,CUST-145,Mechanical Gaming Keyboard,Peripherals,Europe,2,120.9,Completed
+ORD-1157,2024-05-31,CUST-143,Ergonomic Office Chair,Furniture,Asia Pacific,5,259.7,Completed
+ORD-1158,2024-04-25,CUST-130,Height-Adjustable Standing Desk,Furniture,Asia Pacific,1,469.28,Refunded
+ORD-1159,2024-01-08,CUST-202,HD Webcam 1080p,Accessories,North America,3,77.39,Completed
+ORD-1160,2024-10-26,CUST-217,USB-C Multi-Port Hub,Accessories,Europe,2,50.36,Refunded
+ORD-1161,2024-11-13,CUST-196,UltraHD 4K Monitor,Electronics,Asia Pacific,2,382.43,Pending
+ORD-1162,2024-08-25,CUST-184,Portable SSD 1TB,Electronics,Latin America,1,104.36,Completed
+ORD-1163,2024-06-04,CUST-205,UltraHD 4K Monitor,Electronics,Latin America,5,356.04,Completed
+ORD-1164,2024-08-20,CUST-125,Mechanical Gaming Keyboard,Peripherals,North America,1,133.56,Refunded
+ORD-1165,2024-07-31,CUST-239,Wireless Ergonomic Mouse,Peripherals,Europe,3,59.73,Completed
+ORD-1166,2024-08-15,CUST-205,Ergonomic Office Chair,Furniture,Europe,1,231.05,Completed
+ORD-1167,2024-11-26,CUST-193,UltraHD 4K Monitor,Electronics,North America,1,397.53,Completed
+ORD-1168,2024-08-20,CUST-171,Mechanical Gaming Keyboard,Peripherals,North America,5,134.92,Completed
+ORD-1169,2024-03-05,CUST-106,Laptop Pro 15,Electronics,Asia Pacific,1,1226.73,Completed
+ORD-1170,2024-04-29,CUST-118,HD Webcam 1080p,Accessories,North America,1,75.74,Completed
+ORD-1171,2024-03-07,CUST-101,Ergonomic Office Chair,Furniture,Europe,1,257.89,Completed
+ORD-1172,2024-05-01,CUST-129,Laptop Pro 15,Electronics,Europe,1,1124.55,Completed
+ORD-1173,2024-09-26,CUST-145,Ergonomic Office Chair,Furniture,North America,3,231.69,Completed
+ORD-1174,2024-02-25,CUST-222,Height-Adjustable Standing Desk,Furniture,Europe,2,458.49,Completed
+ORD-1175,2024-01-16,CUST-112,HD Webcam 1080p,Accessories,North America,2,76.73,Completed
+ORD-1176,2024-08-15,CUST-203,Wireless Ergonomic Mouse,Peripherals,North America,2,60.5,Completed
+ORD-1177,2024-11-15,CUST-183,Portable SSD 1TB,Electronics,Europe,1,103.31,Pending
+ORD-1178,2024-08-20,CUST-184,Wireless Ergonomic Mouse,Peripherals,Europe,2,62.91,Completed
+ORD-1179,2024-10-09,CUST-126,UltraHD 4K Monitor,Electronics,Asia Pacific,2,391.21,Completed
+ORD-1180,2024-08-20,CUST-211,Height-Adjustable Standing Desk,Furniture,Europe,1,464.92,Refunded
+ORD-1181,2024-07-10,CUST-125,USB-C Multi-Port Hub,Accessories,Latin America,2,48.76,Refunded
+ORD-1182,2024-08-09,CUST-222,UltraHD 4K Monitor,Electronics,North America,1,353.64,Refunded
+ORD-1183,2024-10-14,CUST-196,Wireless Noise-Canceling Headphones,Accessories,Europe,2,188.53,Refunded
+ORD-1184,2024-08-04,CUST-132,Wireless Ergonomic Mouse,Peripherals,Asia Pacific,2,57.91,Refunded
+ORD-1185,2024-10-22,CUST-114,Ergonomic Office Chair,Furniture,Europe,1,249.5,Completed
+ORD-1186,2024-10-11,CUST-224,Mechanical Gaming Keyboard,Peripherals,North America,1,132.89,Completed
+ORD-1187,2024-11-14,CUST-247,Mechanical Gaming Keyboard,Peripherals,Europe,3,132.22,Refunded
+ORD-1188,2024-12-21,CUST-243,Laptop Pro 15,Electronics,North America,2,1198.99,Completed
+ORD-1189,2024-04-02,CUST-170,Ergonomic Office Chair,Furniture,Asia Pacific,1,259.94,Pending
+ORD-1190,2024-01-16,CUST-203,UltraHD 4K Monitor,Electronics,North America,2,356.14,Pending
+ORD-1191,2024-07-08,CUST-156,Wireless Ergonomic Mouse,Peripherals,North America,1,58.43,Completed
+ORD-1192,2024-03-21,CUST-246,Portable SSD 1TB,Electronics,Asia Pacific,1,102.41,Completed
+ORD-1193,2024-11-06,CUST-121,Ergonomic Office Chair,Furniture,Europe,1,244.39,Completed
+ORD-1194,2024-05-25,CUST-156,HD Webcam 1080p,Accessories,Asia Pacific,1,74.77,Pending
+ORD-1195,2024-07-21,CUST-225,HD Webcam 1080p,Accessories,Latin America,1,80.53,Completed
+ORD-1196,2024-03-11,CUST-102,Mechanical Gaming Keyboard,Peripherals,Asia Pacific,1,123.73,Completed
+ORD-1197,2024-03-30,CUST-184,UltraHD 4K Monitor,Electronics,North America,3,349.52,Pending
+ORD-1198,2024-06-30,CUST-159,HD Webcam 1080p,Accessories,North America,2,79.4,Refunded
+ORD-1199,2024-06-09,CUST-111,Wireless Ergonomic Mouse,Peripherals,Europe,4,55.3,Pending
+ORD-1200,2024-06-15,CUST-204,Wireless Ergonomic Mouse,Peripherals,North America,1,57.41,Pending
+ORD-1201,2024-05-04,CUST-218,USB-C Multi-Port Hub,Accessories,Europe,3,46.56,Completed
+ORD-1202,2024-06-22,CUST-235,UltraHD 4K Monitor,Electronics,North America,1,368.67,Completed
+ORD-1203,2024-04-09,CUST-120,HD Webcam 1080p,Accessories,Latin America,2,80.18,Completed
+ORD-1204,2024-04-11,CUST-190,Wireless Noise-Canceling Headphones,Accessories,North America,1,180.63,Completed
+ORD-1205,2024-08-25,CUST-120,Wireless Noise-Canceling Headphones,Accessories,Asia Pacific,2,198.29,Pending
+ORD-1206,2024-06-14,CUST-215,Portable SSD 1TB,Electronics,Asia Pacific,8,110.38,Refunded
+ORD-1207,2024-11-19,CUST-181,Wireless Noise-Canceling Headphones,Accessories,North America,2,185.65,Completed
+ORD-1208,2024-08-19,CUST-115,USB-C Multi-Port Hub,Accessories,North America,1,49.29,Completed
+ORD-1209,2024-02-16,CUST-174,UltraHD 4K Monitor,Electronics,Europe,5,380.94,Pending
+ORD-1210,2024-01-22,CUST-199,Height-Adjustable Standing Desk,Furniture,Europe,5,446.95,Pending
+ORD-1211,2024-02-01,CUST-149,USB-C Multi-Port Hub,Accessories,Europe,2,49.92,Completed
+ORD-1212,2024-12-28,CUST-122,HD Webcam 1080p,Accessories,Europe,1,80.31,Completed
+ORD-1213,2024-05-24,CUST-235,HD Webcam 1080p,Accessories,Europe,1,79.93,Completed
+ORD-1214,2024-12-13,CUST-114,USB-C Multi-Port Hub,Accessories,Europe,1,46.42,Completed
+ORD-1215,2024-06-28,CUST-139,USB-C Multi-Port Hub,Accessories,North America,2,46.52,Refunded
+ORD-1216,2024-06-07,CUST-201,Wireless Noise-Canceling Headphones,Accessories,Europe,5,189.49,Refunded
+ORD-1217,2024-12-16,CUST-185,Wireless Noise-Canceling Headphones,Accessories,Latin America,3,191.34,Completed
+ORD-1218,2024-04-02,CUST-209,HD Webcam 1080p,Accessories,Latin America,1,77.35,Completed
+ORD-1219,2024-02-09,CUST-225,Mechanical Gaming Keyboard,Peripherals,North America,1,122.48,Completed
+ORD-1220,2024-01-20,CUST-230,HD Webcam 1080p,Accessories,Asia Pacific,4,82.27,Pending
+ORD-1221,2024-12-20,CUST-134,Portable SSD 1TB,Electronics,Asia Pacific,1,106.58,Completed
+ORD-1222,2024-05-01,CUST-213,Laptop Pro 15,Electronics,Latin America,2,1168.08,Pending
+ORD-1223,2024-08-28,CUST-173,Height-Adjustable Standing Desk,Furniture,Latin America,1,426.74,Completed
+ORD-1224,2024-05-24,CUST-195,Portable SSD 1TB,Electronics,Asia Pacific,2,115.27,Pending
+ORD-1225,2024-11-05,CUST-236,Wireless Ergonomic Mouse,Peripherals,North America,3,62.68,Completed
+ORD-1226,2024-02-22,CUST-114,Height-Adjustable Standing Desk,Furniture,Asia Pacific,2,464.1,Pending
+ORD-1227,2024-08-18,CUST-132,Ergonomic Office Chair,Furniture,Latin America,1,232.72,Completed
+ORD-1228,2024-08-18,CUST-212,UltraHD 4K Monitor,Electronics,Asia Pacific,1,395.83,Completed
+ORD-1229,2024-07-16,CUST-207,Laptop Pro 15,Electronics,Latin America,1,1165.84,Completed
+ORD-1230,2024-12-31,CUST-158,Laptop Pro 15,Electronics,Europe,1,1153.71,Completed
+ORD-1231,2024-12-22,CUST-136,Laptop Pro 15,Electronics,Asia Pacific,3,1148.74,Refunded
+ORD-1232,2024-01-10,CUST-221,Height-Adjustable Standing Desk,Furniture,North America,4,449.0,Completed
+ORD-1233,2024-05-27,CUST-241,Portable SSD 1TB,Electronics,North America,1,108.74,Completed
+ORD-1234,2024-08-22,CUST-113,Mechanical Gaming Keyboard,Peripherals,North America,3,125.72,Completed
+ORD-1235,2024-03-14,CUST-238,Laptop Pro 15,Electronics,North America,2,1202.57,Completed
+ORD-1236,2024-12-08,CUST-191,Mechanical Gaming Keyboard,Peripherals,North America,1,128.25,Completed
+ORD-1237,2024-09-16,CUST-118,HD Webcam 1080p,Accessories,Europe,3,79.25,Completed
+ORD-1238,2024-05-09,CUST-221,Laptop Pro 15,Electronics,Asia Pacific,8,1203.15,Completed
+ORD-1239,2024-02-23,CUST-118,USB-C Multi-Port Hub,Accessories,Asia Pacific,2,47.56,Refunded
+ORD-1240,2024-11-25,CUST-186,Wireless Noise-Canceling Headphones,Accessories,North America,2,175.89,Refunded
+ORD-1241,2024-02-02,CUST-219,Height-Adjustable Standing Desk,Furniture,Asia Pacific,3,449.95,Completed
+ORD-1242,2024-01-22,CUST-110,Ergonomic Office Chair,Furniture,North America,3,236.54,Completed
+ORD-1243,2024-05-09,CUST-232,Wireless Ergonomic Mouse,Peripherals,North America,2,62.86,Refunded
+ORD-1244,2024-12-01,CUST-149,Ergonomic Office Chair,Furniture,North America,3,241.59,Completed
+ORD-1245,2024-07-16,CUST-195,Wireless Ergonomic Mouse,Peripherals,North America,3,62.09,Completed
+ORD-1246,2024-05-16,CUST-228,Height-Adjustable Standing Desk,Furniture,Asia Pacific,3,434.52,Refunded
+ORD-1247,2024-04-02,CUST-209,UltraHD 4K Monitor,Electronics,Europe,8,370.38,Completed
+ORD-1248,2024-08-16,CUST-127,UltraHD 4K Monitor,Electronics,Europe,1,365.32,Completed
+ORD-1249,2024-06-29,CUST-143,Height-Adjustable Standing Desk,Furniture,Europe,1,433.6,Completed
+ORD-1250,2024-07-05,CUST-171,Laptop Pro 15,Electronics,Europe,2,1115.7,Refunded
+ORD-1251,2024-08-12,CUST-141,Laptop Pro 15,Electronics,North America,2,1126.26,Completed
+ORD-1252,2024-01-17,CUST-161,USB-C Multi-Port Hub,Accessories,Europe,5,48.34,Refunded
+ORD-1253,2024-10-20,CUST-216,USB-C Multi-Port Hub,Accessories,North America,3,48.41,Completed
+ORD-1254,2024-02-28,CUST-202,USB-C Multi-Port Hub,Accessories,North America,1,50.21,Completed
+ORD-1255,2024-05-14,CUST-228,HD Webcam 1080p,Accessories,Asia Pacific,2,77.61,Refunded
+ORD-1256,2024-09-08,CUST-215,Mechanical Gaming Keyboard,Peripherals,North America,1,135.39,Completed
+ORD-1257,2024-02-14,CUST-119,Height-Adjustable Standing Desk,Furniture,Asia Pacific,3,423.16,Completed
+ORD-1258,2024-06-02,CUST-189,UltraHD 4K Monitor,Electronics,Asia Pacific,1,376.27,Refunded
+ORD-1259,2024-04-12,CUST-145,USB-C Multi-Port Hub,Accessories,Asia Pacific,1,49.3,Completed
+ORD-1260,2024-08-27,CUST-227,Laptop Pro 15,Electronics,Asia Pacific,2,1160.29,Pending
+ORD-1261,2024-07-22,CUST-134,Portable SSD 1TB,Electronics,Latin America,1,113.83,Refunded
+ORD-1262,2024-10-21,CUST-223,HD Webcam 1080p,Accessories,North America,1,77.86,Completed
+ORD-1263,2024-03-06,CUST-119,Height-Adjustable Standing Desk,Furniture,Asia Pacific,2,440.27,Pending
+ORD-1264,2024-01-29,CUST-147,Wireless Noise-Canceling Headphones,Accessories,Asia Pacific,4,185.48,Pending
+ORD-1265,2024-12-29,CUST-140,Ergonomic Office Chair,Furniture,North America,1,235.34,Pending
+ORD-1266,2024-10-09,CUST-173,UltraHD 4K Monitor,Electronics,North America,2,361.5,Refunded
+ORD-1267,2024-03-27,CUST-178,Portable SSD 1TB,Electronics,Europe,2,108.82,Pending
+ORD-1268,2024-11-05,CUST-140,Wireless Noise-Canceling Headphones,Accessories,North America,3,191.06,Pending
+ORD-1269,2024-10-22,CUST-111,Laptop Pro 15,Electronics,North America,5,1116.66,Completed
+ORD-1270,2024-11-17,CUST-247,Wireless Ergonomic Mouse,Peripherals,Europe,1,59.97,Refunded
+ORD-1271,2024-07-26,CUST-178,Height-Adjustable Standing Desk,Furniture,North America,3,427.37,Completed
+ORD-1272,2024-04-14,CUST-116,Wireless Noise-Canceling Headphones,Accessories,North America,2,185.65,Completed
+ORD-1273,2024-07-23,CUST-181,USB-C Multi-Port Hub,Accessories,North America,4,50.76,Completed
+ORD-1274,2024-03-03,CUST-232,HD Webcam 1080p,Accessories,North America,1,74.69,Completed
+ORD-1275,2024-11-11,CUST-137,UltraHD 4K Monitor,Electronics,Europe,5,351.64,Completed
+ORD-1276,2024-03-22,CUST-184,Portable SSD 1TB,Electronics,Europe,1,111.5,Pending
+ORD-1277,2024-02-16,CUST-220,Height-Adjustable Standing Desk,Furniture,Latin America,2,464.39,Pending
+ORD-1278,2024-01-26,CUST-218,Mechanical Gaming Keyboard,Peripherals,North America,1,122.29,Pending
+ORD-1279,2024-08-08,CUST-221,Ergonomic Office Chair,Furniture,North America,3,247.43,Completed
+ORD-1280,2024-10-18,CUST-194,Wireless Ergonomic Mouse,Peripherals,Europe,1,58.01,Completed
+ORD-1281,2024-10-08,CUST-242,Ergonomic Office Chair,Furniture,North America,2,232.38,Pending
+ORD-1282,2024-06-22,CUST-131,Wireless Noise-Canceling Headphones,Accessories,Europe,1,198.87,Completed
+ORD-1283,2024-01-21,CUST-137,Mechanical Gaming Keyboard,Peripherals,North America,1,128.78,Completed
+ORD-1284,2024-09-20,CUST-186,Height-Adjustable Standing Desk,Furniture,North America,1,443.39,Pending
+ORD-1285,2024-06-02,CUST-182,Wireless Noise-Canceling Headphones,Accessories,Europe,2,184.5,Pending
+ORD-1286,2024-08-31,CUST-231,HD Webcam 1080p,Accessories,Asia Pacific,2,78.68,Completed
+ORD-1287,2024-12-18,CUST-185,UltraHD 4K Monitor,Electronics,Europe,2,397.48,Pending
+ORD-1288,2024-10-23,CUST-222,Ergonomic Office Chair,Furniture,Europe,3,261.42,Refunded
+ORD-1289,2024-11-13,CUST-114,Portable SSD 1TB,Electronics,Asia Pacific,2,108.06,Completed
+ORD-1290,2024-02-26,CUST-138,Mechanical Gaming Keyboard,Peripherals,North America,5,119.21,Completed
+ORD-1291,2024-07-29,CUST-181,Wireless Ergonomic Mouse,Peripherals,Europe,2,56.33,Pending
+ORD-1292,2024-10-14,CUST-221,Laptop Pro 15,Electronics,North America,2,1214.09,Refunded
+ORD-1293,2024-08-23,CUST-223,HD Webcam 1080p,Accessories,Latin America,5,77.51,Completed
+ORD-1294,2024-12-14,CUST-240,USB-C Multi-Port Hub,Accessories,Europe,4,50.38,Refunded
+ORD-1295,2024-05-22,CUST-168,Portable SSD 1TB,Electronics,Europe,5,108.11,Completed
+ORD-1296,2024-09-07,CUST-177,Ergonomic Office Chair,Furniture,North America,2,252.9,Completed
+ORD-1297,2024-10-05,CUST-244,Ergonomic Office Chair,Furniture,North America,2,239.34,Completed
+ORD-1298,2024-12-31,CUST-189,Wireless Noise-Canceling Headphones,Accessories,North America,1,181.96,Completed
+ORD-1299,2024-05-18,CUST-166,Height-Adjustable Standing Desk,Furniture,Latin America,3,425.57,Refunded
+ORD-1300,2024-05-02,CUST-170,Wireless Noise-Canceling Headphones,Accessories,North America,3,177.49,Refunded
+ORD-1301,2024-07-30,CUST-236,Mechanical Gaming Keyboard,Peripherals,North America,1,129.38,Completed
+ORD-1302,2024-03-21,CUST-126,Wireless Noise-Canceling Headphones,Accessories,Europe,2,174.92,Completed
+ORD-1303,2024-05-26,CUST-223,Mechanical Gaming Keyboard,Peripherals,Europe,1,131.36,Completed
+ORD-1304,2024-01-20,CUST-247,Mechanical Gaming Keyboard,Peripherals,Latin America,3,127.65,Completed
+ORD-1305,2024-07-22,CUST-207,Wireless Noise-Canceling Headphones,Accessories,Asia Pacific,1,197.86,Completed
+ORD-1306,2024-02-24,CUST-175,Laptop Pro 15,Electronics,Latin America,2,1105.44,Completed
+ORD-1307,2024-09-09,CUST-173,Height-Adjustable Standing Desk,Furniture,Asia Pacific,2,470.81,Completed
+ORD-1308,2024-06-18,CUST-230,Height-Adjustable Standing Desk,Furniture,North America,3,429.01,Completed
+ORD-1309,2024-05-31,CUST-166,Wireless Noise-Canceling Headphones,Accessories,Europe,1,175.14,Completed
+ORD-1310,2024-08-06,CUST-145,Portable SSD 1TB,Electronics,Europe,4,113.43,Completed
+ORD-1311,2024-06-14,CUST-203,UltraHD 4K Monitor,Electronics,Latin America,1,358.26,Completed
+ORD-1312,2024-06-17,CUST-167,Wireless Ergonomic Mouse,Peripherals,North America,3,56.99,Refunded
+ORD-1313,2024-04-30,CUST-247,Laptop Pro 15,Electronics,North America,1,1144.79,Completed
+ORD-1314,2024-12-26,CUST-220,Ergonomic Office Chair,Furniture,Asia Pacific,2,235.18,Refunded
+ORD-1315,2024-03-09,CUST-131,Ergonomic Office Chair,Furniture,Europe,1,241.94,Completed
+ORD-1316,2024-10-02,CUST-196,Wireless Ergonomic Mouse,Peripherals,Asia Pacific,4,60.62,Completed
+ORD-1317,2024-08-16,CUST-164,Portable SSD 1TB,Electronics,Europe,1,113.68,Completed
+ORD-1318,2024-09-15,CUST-120,Portable SSD 1TB,Electronics,North America,3,102.8,Pending
+ORD-1319,2024-02-29,CUST-139,Wireless Noise-Canceling Headphones,Accessories,Asia Pacific,2,182.89,Refunded
+ORD-1320,2024-01-29,CUST-250,Height-Adjustable Standing Desk,Furniture,Europe,2,418.39,Pending
+ORD-1321,2024-12-10,CUST-207,Height-Adjustable Standing Desk,Furniture,Asia Pacific,2,446.0,Refunded
+ORD-1322,2024-04-21,CUST-106,Wireless Ergonomic Mouse,Peripherals,Europe,1,57.14,Completed
+ORD-1323,2024-01-31,CUST-209,USB-C Multi-Port Hub,Accessories,Latin America,2,50.54,Completed
+ORD-1324,2024-03-10,CUST-221,Laptop Pro 15,Electronics,Asia Pacific,1,1148.78,Refunded
+ORD-1325,2024-07-12,CUST-208,USB-C Multi-Port Hub,Accessories,North America,1,52.44,Refunded
+ORD-1326,2024-04-01,CUST-239,Wireless Noise-Canceling Headphones,Accessories,Latin America,1,190.93,Completed
+ORD-1327,2024-01-02,CUST-236,Wireless Noise-Canceling Headphones,Accessories,Asia Pacific,1,192.77,Completed
+ORD-1328,2024-04-27,CUST-219,HD Webcam 1080p,Accessories,North America,1,78.0,Completed
+ORD-1329,2024-02-27,CUST-140,Ergonomic Office Chair,Furniture,North America,4,236.12,Refunded
+ORD-1330,2024-01-09,CUST-208,Portable SSD 1TB,Electronics,North America,4,112.14,Completed
+ORD-1331,2024-12-26,CUST-126,Portable SSD 1TB,Electronics,Asia Pacific,2,101.67,Completed
+ORD-1332,2024-01-29,CUST-112,Wireless Ergonomic Mouse,Peripherals,North America,2,58.58,Completed
+ORD-1333,2024-12-10,CUST-160,Portable SSD 1TB,Electronics,Asia Pacific,2,105.75,Completed
+ORD-1334,2024-07-30,CUST-178,Wireless Noise-Canceling Headphones,Accessories,North America,2,199.14,Completed
+ORD-1335,2024-11-16,CUST-243,Portable SSD 1TB,Electronics,Asia Pacific,4,113.77,Pending
+ORD-1336,2024-12-09,CUST-227,Laptop Pro 15,Electronics,Europe,5,1255.67,Pending
+ORD-1337,2024-04-04,CUST-182,Wireless Ergonomic Mouse,Peripherals,Asia Pacific,1,58.34,Completed
+ORD-1338,2024-08-25,CUST-162,Mechanical Gaming Keyboard,Peripherals,Latin America,3,123.72,Pending
+ORD-1339,2024-05-04,CUST-206,Wireless Ergonomic Mouse,Peripherals,North America,1,59.5,Completed
+ORD-1340,2024-04-07,CUST-121,Height-Adjustable Standing Desk,Furniture,North America,1,462.53,Completed
+ORD-1341,2024-12-09,CUST-111,UltraHD 4K Monitor,Electronics,Europe,3,358.42,Completed
+ORD-1342,2024-04-18,CUST-154,USB-C Multi-Port Hub,Accessories,Latin America,4,47.96,Refunded
+ORD-1343,2024-12-26,CUST-131,Height-Adjustable Standing Desk,Furniture,North America,2,466.46,Completed
+ORD-1344,2024-09-30,CUST-242,USB-C Multi-Port Hub,Accessories,Europe,1,51.03,Completed
+ORD-1345,2024-02-20,CUST-167,USB-C Multi-Port Hub,Accessories,Asia Pacific,2,49.32,Refunded
+ORD-1346,2024-07-30,CUST-221,USB-C Multi-Port Hub,Accessories,North America,1,51.93,Completed
+ORD-1347,2024-10-23,CUST-138,Laptop Pro 15,Electronics,Asia Pacific,5,1144.67,Completed
+ORD-1348,2024-05-05,CUST-140,Mechanical Gaming Keyboard,Peripherals,Europe,1,124.21,Refunded
+ORD-1349,2024-11-24,CUST-187,Ergonomic Office Chair,Furniture,Asia Pacific,2,254.8,Completed
+ORD-1350,2024-09-07,CUST-144,USB-C Multi-Port Hub,Accessories,North America,3,47.09,Pending
+ORD-1351,2024-12-08,CUST-116,HD Webcam 1080p,Accessories,North America,3,73.94,Completed
+ORD-1352,2024-12-28,CUST-206,Wireless Noise-Canceling Headphones,Accessories,North America,1,195.6,Completed
+ORD-1353,2024-12-07,CUST-230,Height-Adjustable Standing Desk,Furniture,Latin America,2,434.86,Completed
+ORD-1354,2024-01-07,CUST-225,Laptop Pro 15,Electronics,North America,2,1105.02,Refunded
+ORD-1355,2024-12-23,CUST-171,HD Webcam 1080p,Accessories,Asia Pacific,1,83.76,Completed
+ORD-1356,2024-11-13,CUST-128,UltraHD 4K Monitor,Electronics,Europe,1,375.01,Completed
+ORD-1357,2024-08-23,CUST-169,Wireless Ergonomic Mouse,Peripherals,Europe,5,55.77,Refunded
+ORD-1358,2024-11-30,CUST-158,Ergonomic Office Chair,Furniture,Latin America,3,252.22,Refunded
+ORD-1359,2024-08-31,CUST-109,UltraHD 4K Monitor,Electronics,North America,1,369.13,Completed
+ORD-1360,2024-06-18,CUST-144,UltraHD 4K Monitor,Electronics,Europe,1,373.8,Completed
+ORD-1361,2024-12-20,CUST-236,Laptop Pro 15,Electronics,Asia Pacific,4,1139.83,Completed
+ORD-1362,2024-05-23,CUST-170,Laptop Pro 15,Electronics,Asia Pacific,2,1248.16,Pending
+ORD-1363,2024-04-16,CUST-109,Wireless Noise-Canceling Headphones,Accessories,Europe,1,197.73,Refunded
+ORD-1364,2024-10-17,CUST-202,UltraHD 4K Monitor,Electronics,Asia Pacific,2,363.9,Completed
+ORD-1365,2024-12-18,CUST-239,USB-C Multi-Port Hub,Accessories,Asia Pacific,3,48.49,Pending
+ORD-1366,2024-02-08,CUST-189,Laptop Pro 15,Electronics,North America,1,1119.23,Pending
+ORD-1367,2024-08-18,CUST-202,USB-C Multi-Port Hub,Accessories,Europe,1,46.18,Completed
+ORD-1368,2024-12-04,CUST-242,Wireless Ergonomic Mouse,Peripherals,Europe,2,58.52,Pending
+ORD-1369,2024-03-19,CUST-176,Mechanical Gaming Keyboard,Peripherals,North America,1,130.64,Refunded
+ORD-1370,2024-01-03,CUST-140,Wireless Ergonomic Mouse,Peripherals,Latin America,1,57.62,Completed
+ORD-1371,2024-08-08,CUST-193,Ergonomic Office Chair,Furniture,Europe,1,233.31,Pending
+ORD-1372,2024-10-10,CUST-232,Wireless Ergonomic Mouse,Peripherals,North America,1,55.96,Pending
+ORD-1373,2024-02-13,CUST-184,Wireless Ergonomic Mouse,Peripherals,Asia Pacific,1,55.25,Pending
+ORD-1374,2024-03-27,CUST-163,Portable SSD 1TB,Electronics,North America,2,108.64,Completed
+ORD-1375,2024-05-21,CUST-169,Height-Adjustable Standing Desk,Furniture,Europe,1,421.6,Completed
+ORD-1376,2024-11-16,CUST-120,USB-C Multi-Port Hub,Accessories,Europe,1,47.63,Pending
+ORD-1377,2024-07-21,CUST-151,Height-Adjustable Standing Desk,Furniture,North America,1,419.32,Pending
+ORD-1378,2024-11-29,CUST-198,USB-C Multi-Port Hub,Accessories,Latin America,1,48.85,Completed
+ORD-1379,2024-09-02,CUST-177,USB-C Multi-Port Hub,Accessories,North America,2,49.91,Completed
+ORD-1380,2024-10-21,CUST-182,Ergonomic Office Chair,Furniture,Asia Pacific,2,253.87,Completed
+ORD-1381,2024-02-28,CUST-197,Ergonomic Office Chair,Furniture,Latin America,1,256.53,Completed
+ORD-1382,2024-08-24,CUST-240,Wireless Noise-Canceling Headphones,Accessories,Latin America,2,191.63,Completed
+ORD-1383,2024-07-28,CUST-213,Ergonomic Office Chair,Furniture,Asia Pacific,1,257.01,Completed
+ORD-1384,2024-08-04,CUST-178,Mechanical Gaming Keyboard,Peripherals,Asia Pacific,1,122.92,Completed
+ORD-1385,2024-09-16,CUST-215,Portable SSD 1TB,Electronics,Latin America,1,108.04,Refunded
+ORD-1386,2024-12-25,CUST-208,HD Webcam 1080p,Accessories,Asia Pacific,5,73.97,Pending
+ORD-1387,2024-06-30,CUST-122,UltraHD 4K Monitor,Electronics,North America,2,387.08,Pending
+ORD-1388,2024-07-23,CUST-112,Portable SSD 1TB,Electronics,Latin America,2,115.26,Completed
+ORD-1389,2024-09-18,CUST-211,UltraHD 4K Monitor,Electronics,Asia Pacific,1,349.66,Pending
+ORD-1390,2024-08-25,CUST-249,Portable SSD 1TB,Electronics,Asia Pacific,1,104.35,Pending
+ORD-1391,2024-02-23,CUST-229,Wireless Noise-Canceling Headphones,Accessories,North America,1,183.31,Completed
+ORD-1392,2024-04-15,CUST-130,Wireless Noise-Canceling Headphones,Accessories,Europe,1,183.39,Completed
+ORD-1393,2024-06-12,CUST-222,UltraHD 4K Monitor,Electronics,North America,2,370.76,Completed
+ORD-1394,2024-12-12,CUST-130,Laptop Pro 15,Electronics,Asia Pacific,2,1236.46,Refunded
+ORD-1395,2024-10-13,CUST-163,HD Webcam 1080p,Accessories,Europe,1,75.4,Completed
+ORD-1396,2024-12-02,CUST-160,Wireless Ergonomic Mouse,Peripherals,Europe,1,60.06,Completed
+ORD-1397,2024-12-26,CUST-151,Height-Adjustable Standing Desk,Furniture,North America,1,447.65,Completed
+ORD-1398,2024-04-05,CUST-117,Portable SSD 1TB,Electronics,North America,4,102.65,Completed
+ORD-1399,2024-09-27,CUST-218,UltraHD 4K Monitor,Electronics,Latin America,4,362.08,Completed
+ORD-1400,2024-06-29,CUST-200,Portable SSD 1TB,Electronics,Asia Pacific,1,106.8,Pending
+ORD-1401,2024-12-10,CUST-145,Ergonomic Office Chair,Furniture,North America,2,259.85,Completed
+ORD-1402,2024-03-13,CUST-162,Ergonomic Office Chair,Furniture,Europe,1,233.79,Completed
+ORD-1403,2024-11-21,CUST-136,Portable SSD 1TB,Electronics,Europe,1,106.68,Refunded
+ORD-1404,2024-04-05,CUST-145,HD Webcam 1080p,Accessories,North America,1,75.33,Completed
+ORD-1405,2024-04-09,CUST-114,USB-C Multi-Port Hub,Accessories,Asia Pacific,2,52.18,Pending
+ORD-1406,2024-12-29,CUST-230,Height-Adjustable Standing Desk,Furniture,Asia Pacific,2,436.96,Completed
+ORD-1407,2024-04-22,CUST-143,UltraHD 4K Monitor,Electronics,North America,3,377.03,Completed
+ORD-1408,2024-10-16,CUST-158,HD Webcam 1080p,Accessories,Asia Pacific,3,76.59,Completed
+ORD-1409,2024-10-05,CUST-241,HD Webcam 1080p,Accessories,Asia Pacific,1,74.77,Completed
+ORD-1410,2024-04-21,CUST-239,Laptop Pro 15,Electronics,Latin America,1,1222.55,Completed
+ORD-1411,2024-05-14,CUST-164,Ergonomic Office Chair,Furniture,North America,1,258.42,Completed
+ORD-1412,2024-10-28,CUST-213,UltraHD 4K Monitor,Electronics,Asia Pacific,1,387.41,Refunded
+ORD-1413,2024-04-15,CUST-210,Wireless Noise-Canceling Headphones,Accessories,Asia Pacific,3,190.01,Pending
+ORD-1414,2024-06-14,CUST-190,HD Webcam 1080p,Accessories,Latin America,2,76.51,Completed
+ORD-1415,2024-12-13,CUST-175,Portable SSD 1TB,Electronics,Asia Pacific,4,105.01,Completed
+ORD-1416,2024-03-05,CUST-206,Laptop Pro 15,Electronics,Asia Pacific,4,1258.82,Completed
+ORD-1417,2024-12-12,CUST-164,Wireless Noise-Canceling Headphones,Accessories,Europe,3,192.36,Completed
+ORD-1418,2024-02-08,CUST-248,Ergonomic Office Chair,Furniture,Europe,1,250.39,Completed
+ORD-1419,2024-07-07,CUST-204,HD Webcam 1080p,Accessories,Europe,2,81.39,Completed
+ORD-1420,2024-02-17,CUST-184,Portable SSD 1TB,Electronics,Asia Pacific,3,101.23,Completed
+ORD-1421,2024-08-07,CUST-192,UltraHD 4K Monitor,Electronics,Asia Pacific,1,388.39,Completed
+ORD-1422,2024-10-22,CUST-169,USB-C Multi-Port Hub,Accessories,North America,1,51.37,Completed
+ORD-1423,2024-08-23,CUST-188,Laptop Pro 15,Electronics,North America,2,1111.16,Completed
+ORD-1424,2024-04-13,CUST-213,Height-Adjustable Standing Desk,Furniture,Latin America,5,413.12,Completed
+ORD-1425,2024-02-17,CUST-178,Wireless Noise-Canceling Headphones,Accessories,Europe,4,196.39,Completed
+ORD-1426,2024-01-27,CUST-122,USB-C Multi-Port Hub,Accessories,Europe,2,50.31,Completed
+ORD-1427,2024-01-01,CUST-160,Wireless Ergonomic Mouse,Peripherals,North America,3,60.26,Completed
+ORD-1428,2024-01-05,CUST-134,Portable SSD 1TB,Electronics,North America,2,104.43,Completed
+ORD-1429,2024-04-27,CUST-131,Wireless Ergonomic Mouse,Peripherals,Europe,2,60.56,Refunded
+ORD-1430,2024-03-11,CUST-127,UltraHD 4K Monitor,Electronics,Europe,4,364.6,Completed
+ORD-1431,2024-11-28,CUST-137,UltraHD 4K Monitor,Electronics,North America,1,375.31,Completed
+ORD-1432,2024-08-14,CUST-155,Wireless Noise-Canceling Headphones,Accessories,Asia Pacific,2,197.51,Completed
+ORD-1433,2024-07-15,CUST-126,Wireless Noise-Canceling Headphones,Accessories,North America,2,193.38,Completed
+ORD-1434,2024-05-07,CUST-181,Wireless Noise-Canceling Headphones,Accessories,Europe,2,180.91,Pending
+ORD-1435,2024-06-03,CUST-173,Laptop Pro 15,Electronics,North America,2,1236.26,Pending
+ORD-1436,2024-01-28,CUST-231,Mechanical Gaming Keyboard,Peripherals,Asia Pacific,1,131.22,Completed
+ORD-1437,2024-10-31,CUST-227,Wireless Ergonomic Mouse,Peripherals,North America,2,56.03,Completed
+ORD-1438,2024-10-18,CUST-193,USB-C Multi-Port Hub,Accessories,Europe,4,46.85,Pending
+ORD-1439,2024-01-09,CUST-145,Height-Adjustable Standing Desk,Furniture,Europe,3,468.79,Completed
+ORD-1440,2024-07-22,CUST-168,Mechanical Gaming Keyboard,Peripherals,Europe,1,119.35,Refunded
+ORD-1441,2024-11-23,CUST-229,Wireless Ergonomic Mouse,Peripherals,Europe,1,58.46,Pending
+ORD-1442,2024-04-14,CUST-140,Ergonomic Office Chair,Furniture,Latin America,1,232.71,Completed
+ORD-1443,2024-11-28,CUST-238,USB-C Multi-Port Hub,Accessories,Asia Pacific,2,48.53,Completed
+ORD-1444,2024-01-30,CUST-180,Wireless Ergonomic Mouse,Peripherals,North America,3,60.84,Completed
+ORD-1445,2024-12-07,CUST-130,Height-Adjustable Standing Desk,Furniture,Asia Pacific,1,448.82,Refunded
+ORD-1446,2024-01-06,CUST-145,UltraHD 4K Monitor,Electronics,North America,1,349.76,Completed
+ORD-1447,2024-03-26,CUST-234,HD Webcam 1080p,Accessories,North America,3,81.73,Refunded
+ORD-1448,2024-08-07,CUST-169,UltraHD 4K Monitor,Electronics,North America,1,387.2,Completed
+ORD-1449,2024-09-18,CUST-168,Portable SSD 1TB,Electronics,North America,2,110.16,Completed
+ORD-1450,2024-02-22,CUST-246,Wireless Noise-Canceling Headphones,Accessories,Asia Pacific,1,183.87,Refunded
+ORD-1451,2024-01-07,CUST-130,Mechanical Gaming Keyboard,Peripherals,North America,1,131.1,Completed
+ORD-1452,2024-01-19,CUST-194,Wireless Ergonomic Mouse,Peripherals,Europe,1,62.33,Refunded
+ORD-1453,2024-06-12,CUST-208,Mechanical Gaming Keyboard,Peripherals,North America,1,124.08,Completed
+ORD-1454,2024-01-27,CUST-247,USB-C Multi-Port Hub,Accessories,North America,2,46.77,Pending
+ORD-1455,2024-05-24,CUST-112,Wireless Ergonomic Mouse,Peripherals,Asia Pacific,2,55.69,Completed
+ORD-1456,2024-04-12,CUST-184,UltraHD 4K Monitor,Electronics,North America,1,376.43,Completed
+ORD-1457,2024-04-10,CUST-163,Height-Adjustable Standing Desk,Furniture,Asia Pacific,5,434.58,Pending
+ORD-1458,2024-04-29,CUST-163,Wireless Noise-Canceling Headphones,Accessories,Europe,1,174.95,Refunded
+ORD-1459,2024-06-06,CUST-103,USB-C Multi-Port Hub,Accessories,North America,2,46.0,Pending
+ORD-1460,2024-03-13,CUST-161,Wireless Ergonomic Mouse,Peripherals,Asia Pacific,1,58.99,Completed
+ORD-1461,2024-12-24,CUST-112,Mechanical Gaming Keyboard,Peripherals,Asia Pacific,2,133.73,Completed
+ORD-1462,2024-07-20,CUST-122,Portable SSD 1TB,Electronics,North America,1,102.56,Pending
+ORD-1463,2024-05-29,CUST-116,Wireless Ergonomic Mouse,Peripherals,North America,1,60.32,Completed
+ORD-1464,2024-02-08,CUST-201,USB-C Multi-Port Hub,Accessories,Latin America,1,48.06,Completed
+ORD-1465,2024-08-26,CUST-250,UltraHD 4K Monitor,Electronics,North America,1,356.81,Completed
+ORD-1466,2024-06-06,CUST-238,USB-C Multi-Port Hub,Accessories,Europe,1,52.26,Completed
+ORD-1467,2024-12-26,CUST-124,Wireless Noise-Canceling Headphones,Accessories,Asia Pacific,1,194.74,Completed
+ORD-1468,2024-07-01,CUST-156,USB-C Multi-Port Hub,Accessories,Europe,3,46.95,Completed
+ORD-1469,2024-07-26,CUST-177,Ergonomic Office Chair,Furniture,Asia Pacific,1,256.64,Pending
+ORD-1470,2024-03-12,CUST-241,Mechanical Gaming Keyboard,Peripherals,North America,1,120.27,Completed
+ORD-1471,2024-12-17,CUST-157,Wireless Noise-Canceling Headphones,Accessories,Europe,1,179.68,Refunded
+ORD-1472,2024-02-08,CUST-122,Portable SSD 1TB,Electronics,North America,4,109.57,Completed
+ORD-1473,2024-06-18,CUST-151,Height-Adjustable Standing Desk,Furniture,North America,1,460.32,Completed
+ORD-1474,2024-07-21,CUST-113,Wireless Noise-Canceling Headphones,Accessories,Europe,1,197.62,Completed
+ORD-1475,2024-05-20,CUST-210,Wireless Noise-Canceling Headphones,Accessories,North America,4,183.53,Completed
+ORD-1476,2024-05-31,CUST-109,Portable SSD 1TB,Electronics,Europe,1,110.04,Pending
+ORD-1477,2024-08-02,CUST-223,Laptop Pro 15,Electronics,North America,1,1117.68,Pending
+ORD-1478,2024-12-31,CUST-164,HD Webcam 1080p,Accessories,North America,8,81.86,Pending
+ORD-1479,2024-07-17,CUST-225,USB-C Multi-Port Hub,Accessories,North America,2,51.92,Completed
+ORD-1480,2024-05-23,CUST-182,Portable SSD 1TB,Electronics,North America,4,104.32,Completed
+ORD-1481,2024-03-22,CUST-236,USB-C Multi-Port Hub,Accessories,North America,8,50.97,Refunded
+ORD-1482,2024-01-29,CUST-162,Ergonomic Office Chair,Furniture,Asia Pacific,3,247.34,Completed
+ORD-1483,2024-03-29,CUST-248,Wireless Ergonomic Mouse,Peripherals,North America,3,57.92,Pending
+ORD-1484,2024-12-24,CUST-182,USB-C Multi-Port Hub,Accessories,North America,1,51.93,Pending
+ORD-1485,2024-09-09,CUST-245,Wireless Noise-Canceling Headphones,Accessories,Europe,1,188.7,Completed
+ORD-1486,2024-04-22,CUST-226,Laptop Pro 15,Electronics,North America,1,1118.07,Completed
+ORD-1487,2024-03-07,CUST-101,USB-C Multi-Port Hub,Accessories,North America,1,51.96,Completed
+ORD-1488,2024-03-13,CUST-183,Laptop Pro 15,Electronics,Asia Pacific,2,1107.41,Pending
+ORD-1489,2024-07-21,CUST-194,UltraHD 4K Monitor,Electronics,Europe,5,367.57,Completed
+ORD-1490,2024-08-11,CUST-178,USB-C Multi-Port Hub,Accessories,Asia Pacific,1,46.88,Completed
+ORD-1491,2024-11-10,CUST-182,Wireless Noise-Canceling Headphones,Accessories,Asia Pacific,2,192.26,Completed
+ORD-1492,2024-03-06,CUST-145,Wireless Ergonomic Mouse,Peripherals,North America,2,57.55,Completed
+ORD-1493,2024-10-17,CUST-247,Wireless Ergonomic Mouse,Peripherals,North America,3,61.78,Pending
+ORD-1494,2024-09-11,CUST-182,Portable SSD 1TB,Electronics,North America,2,104.35,Refunded
+ORD-1495,2024-11-21,CUST-120,Mechanical Gaming Keyboard,Peripherals,Asia Pacific,1,124.5,Completed
+ORD-1496,2024-12-20,CUST-186,Height-Adjustable Standing Desk,Furniture,North America,1,413.75,Completed
+ORD-1497,2024-08-02,CUST-128,Laptop Pro 15,Electronics,Latin America,1,1111.5,Completed
+ORD-1498,2024-09-02,CUST-227,Wireless Ergonomic Mouse,Peripherals,Asia Pacific,1,57.89,Pending
+ORD-1499,2024-01-18,CUST-158,Wireless Noise-Canceling Headphones,Accessories,North America,3,185.94,Completed
+ORD-1500,2024-07-11,CUST-167,UltraHD 4K Monitor,Electronics,North America,1,352.8,Completed

@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: stg_retail_sales
+    description: "Cleaned and standardized retail sales transactions staged from raw ingestion"
+    columns:
+      - name: order_id
+        description: "Unique identifier for each transaction order"
+        tests:
+          - unique
+          - not_null
+
+      - name: order_date
+        description: "Date the transaction took place"
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: "Customer identifier"
+        tests:
+          - not_null
+
+      - name: product_name
+        description: "Standardized product item description"
+        tests:
+          - not_null
+
+      - name: quantity
+        description: "Number of units purchased in the order"
+        tests:
+          - not_null
+
+      - name: unit_price
+        description: "Price per single unit of the product"
+        tests:
+          - not_null
+
+      - name: revenue
+        description: "Computed total sales revenue (quantity * unit_price)"
+        tests:
+          - not_null
+
+      - name: payment_status
+        description: "Payment status of the order"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Completed', 'Pending', 'Refunded']

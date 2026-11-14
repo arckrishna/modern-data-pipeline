@@ -1,0 +1,26 @@
+name: 'retail_analytics_dbt'
+version: '1.0.0'
+config-version: 2
+
+# Profile to use from ~/.dbt/profiles.yml or local profiles.yml
+profile: 'retail_analytics'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  retail_analytics_dbt:
+    staging:
+      +materialized: view
+      +schema: staging
+    marts:
+      +materialized: table
+      +schema: analytics

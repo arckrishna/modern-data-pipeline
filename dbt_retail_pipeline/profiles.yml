@@ -1,0 +1,37 @@
+# =============================================================================
+# dbt Connection Profiles for Retail Analytics Pipeline
+# Supports BigQuery, Snowflake, and Local Embedded Warehouse (DuckDB)
+# =============================================================================
+
+retail_analytics:
+  target: dev_local
+  outputs:
+    # 1. Local Development (Zero-setup embedded DuckDB warehouse)
+    dev_local:
+      type: duckdb
+      path: '../warehouse/retail_dw.duckdb'
+      threads: 4
+
+    # 2. Snowflake Target Environment
+    snowflake_prod:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT', 'xy12345.us-east-1') }}"
+      user: "{{ env_var('SNOWFLAKE_USER', 'transformer_user') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD', '') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE', 'RETAIL_TRANSFORMER_ROLE') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE', 'RETAIL_DWH') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'RETAIL_WH') }}"
+      schema: STAGING_LAYER
+      threads: 4
+      client_session_keep_alive: False
+
+    # 3. Google BigQuery Target Environment
+    bigquery_prod:
+      type: bigquery
+      method: service-account
+      project: "{{ env_var('GCP_PROJECT_ID', 'my-retail-de-project') }}"
+      dataset: retail_staging
+      threads: 4
+      keyfile: "{{ env_var('GCP_KEYFILE_PATH', 'credentials/bigquery-sa-key.json') }}"
+      timeout_seconds: 300
+      location: US
