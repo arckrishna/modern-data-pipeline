@@ -145,6 +145,30 @@ Click the sample query buttons or type your questions in natural language:
 
 ---
 
+## ☁️ Cloud Data Warehouse Setup (Google BigQuery & Snowflake)
+
+The repository provides production-ready deployment configurations for both major cloud data warehouses specified in the department guidelines:
+
+### Option A: Google Cloud BigQuery
+1. **DDL Setup Script:** Run [warehouse/bigquery_setup.sql](warehouse/bigquery_setup.sql) in the **Google Cloud Console &rarr; BigQuery SQL Studio**.
+   - Creates datasets: `retail_raw`, `retail_staging`, `retail_analytics`.
+   - Creates landing table: `retail_raw.raw_retail_sales`.
+2. **dbt Adapter:** Uses `dbt-bigquery` configured in `dbt_retail_pipeline/profiles.yml` (`bigquery_prod`).
+3. **Authentication:** Authenticates via GCP Service Account Key (`GCP_KEYFILE_PATH`) with BigQuery Admin / Job User roles.
+
+### Option B: Snowflake Data Cloud
+1. **DDL Setup Script:** Run [warehouse/snowflake_setup.sql](warehouse/snowflake_setup.sql) in **Snowflake Snowsight**.
+   - Provisions virtual warehouse `RETAIL_WH` (size: `XSMALL`, auto-suspend 60s).
+   - Creates database `RETAIL_DWH` and Medallion schemas: `RAW_LAYER`, `STAGING_LAYER`, `ANALYTICS_LAYER`.
+   - Creates transformer role `RETAIL_TRANSFORMER_ROLE` and raw ingestion table `RAW_RETAIL_SALES`.
+2. **dbt Adapter:** Uses `dbt-snowflake` configured in `dbt_retail_pipeline/profiles.yml` (`snowflake_prod`).
+3. **Authentication:** Account identifier, warehouse, role, and credentials configured via environment variables.
+
+### Option C: Embedded Warehouse (DuckDB)
+- Provided in `warehouse/retail_dw.duckdb` for zero-overhead, offline local demonstration. It runs the exact same SQL transformations and dbt logic without requiring cloud billing accounts or internet dependencies during evaluation.
+
+---
+
 ## 📊 Business Insights Generated
 
 | Business Question | Insight Answer |
