@@ -1,6 +1,6 @@
 """
 =============================================================================
-Modern Automated Data Pipeline: Conversational BI Dashboard
+RetailPulse AI: Enterprise Modern Data Pipeline & Conversational BI
 Subject: Data Engineering Microproject
 Stack: Streamlit + Plotly + DuckDB/Snowflake/BigQuery + dbt + Airflow
 =============================================================================
@@ -16,7 +16,7 @@ import streamlit as st
 
 # Configure page metadata & layout
 st.set_page_config(
-    page_title="RetailFlow | Conversational BI & Modern Data Pipeline",
+    page_title="RetailPulse AI | Modern Automated Data Pipeline",
     page_icon="⚡",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -26,35 +26,36 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WAREHOUSE_PATH = os.path.join(PROJECT_ROOT, "warehouse", "retail_dw.duckdb")
 
 # ---------------------------------------------------------------------------
-# CUSTOM CSS STYLING (Modern Enterprise Dark/Light Glassmorphism Theme)
+# CUSTOM CSS STYLING (Modern Enterprise Glassmorphism Theme)
 # ---------------------------------------------------------------------------
 st.markdown("""
 <style>
     /* Main container styling */
     .main .block-container {
-        padding-top: 1.5rem;
+        padding-top: 1.2rem;
         padding-bottom: 2rem;
-        max-width: 95%;
+        max-width: 96%;
     }
     
     /* Top Banner */
     .hero-banner {
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+        background: linear-gradient(135deg, #091326 0%, #172554 45%, #1e40af 100%);
         border-radius: 14px;
-        padding: 24px 30px;
+        padding: 22px 28px;
         color: #ffffff;
-        margin-bottom: 25px;
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 22px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.12);
     }
     .hero-banner h1 {
-        color: #f8fafc;
-        font-size: 2.1rem;
-        font-weight: 700;
-        margin-bottom: 8px;
+        color: #ffffff;
+        font-size: 2.15rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin-bottom: 6px;
     }
     .hero-banner p {
-        color: #94a3b8;
+        color: #bfdbfe;
         font-size: 1rem;
         margin-bottom: 0px;
     }
@@ -98,8 +99,8 @@ st.markdown("""
         border-radius: 6px;
         font-size: 0.78rem;
         font-weight: 600;
-        background: #e0f2fe;
-        color: #0369a1;
+        background: #dbeafe;
+        color: #1e40af;
         margin-right: 6px;
     }
     
@@ -112,15 +113,6 @@ st.markdown("""
         background: #dcfce7;
         color: #15803d;
     }
-
-    /* Chat bubble enhancements */
-    .chat-card {
-        background: #f8fafc;
-        border: 1px solid #e2e8f0;
-        border-radius: 10px;
-        padding: 18px;
-        margin-bottom: 12px;
-    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -132,7 +124,7 @@ def get_db():
 
 def execute_query(sql: str):
     """Executes a sanitized SELECT query against the target warehouse."""
-    forbidden = ["DROP", "DELETE", "UPDATE", "INSERT", "ALTER", "TRUNCATE"]
+    forbidden = ["DROP", "DELETE", "UPDATE", "INSERT", "ALTER", "TRUNCATE", "REPLACE"]
     for kw in forbidden:
         if re.search(r'\b' + kw + r'\b', sql, re.IGNORECASE):
             raise ValueError(f"Security Alert: '{kw}' statement rejected. Only SELECT is permitted.")
@@ -147,13 +139,42 @@ def execute_query(sql: str):
     return df, duration_ms
 
 # ---------------------------------------------------------------------------
-# NATURAL LANGUAGE QUERY (NLQ) INTENT PARSER
+# ADVANCED NATURAL LANGUAGE QUERY (NLQ) INTENT PARSER
 # ---------------------------------------------------------------------------
 def nl_to_sql_intent(prompt: str):
     p = prompt.lower().strip()
     
-    # Question 1: Product revenue
-    if any(k in p for k in ["product", "item", "gadget"]) and any(k in p for k in ["highest revenue", "top revenue", "most revenue", "best product", "max revenue", "sales rank", "best selling"]):
+    # 1. Total enterprise KPIs / High-level Summary
+    if any(k in p for k in ["total revenue", "overall revenue", "gross sales", "how much revenue", "how many orders", "total orders", "kpi", "summary", "overview"]):
+        sql = """SELECT 
+    ROUND(SUM(total_revenue), 2) AS total_gross_revenue,
+    SUM(total_orders) AS total_completed_orders,
+    SUM(total_units_sold) AS total_units_shipped,
+    COUNT(product_name) AS unique_products_cataloged,
+    ROUND(SUM(total_revenue) / SUM(total_orders), 2) AS overall_avg_order_value
+FROM retail_analytics.dim_products_sales;"""
+        chart_type = "metric_summary"
+        summary = "Aggregating warehouse-wide totals and overall retail KPI performance."
+        return sql, chart_type, summary
+
+    # 2. Lowest / Worst Selling Products
+    elif any(k in p for k in ["lowest revenue", "least revenue", "worst product", "least selling", "minimum revenue", "bottom product"]):
+        sql = """SELECT 
+    product_name,
+    category,
+    total_revenue,
+    total_units_sold,
+    total_orders,
+    revenue_rank
+FROM retail_analytics.dim_products_sales
+ORDER BY total_revenue ASC
+LIMIT 5;"""
+        chart_type = "bar_product"
+        summary = "Querying `dim_products_sales` in ascending order to identify lowest-grossing products."
+        return sql, chart_type, summary
+
+    # 3. Best / Top Selling Products (Question 1)
+    elif any(k in p for k in ["product", "item", "gadget"]) and any(k in p for k in ["highest", "top", "most", "best", "max", "rank"]):
         sql = """SELECT 
     product_name,
     category,
@@ -164,10 +185,10 @@ def nl_to_sql_intent(prompt: str):
 FROM retail_analytics.dim_products_sales
 ORDER BY total_revenue DESC;"""
         chart_type = "bar_product"
-        summary = "Querying `dim_products_sales` to rank all products by gross revenue."
+        summary = "Querying `dim_products_sales` to rank all retail products by gross revenue."
         return sql, chart_type, summary
 
-    # Question 2: Regional sales performance
+    # 4. Regional Performance Breakdown (Question 2)
     elif any(k in p for k in ["region", "geography", "country", "territory", "area"]) or ("highest sales" in p and "month" not in p and "product" not in p):
         sql = """SELECT 
     region,
@@ -180,11 +201,11 @@ ORDER BY total_revenue DESC;"""
 FROM retail_analytics.dim_regional_performance
 ORDER BY total_revenue DESC;"""
         chart_type = "donut_region"
-        summary = "Querying `dim_regional_performance` to evaluate sales, customer reach, and average order values by region."
+        summary = "Querying `dim_regional_performance` to evaluate regional sales, reach, and AOV."
         return sql, chart_type, summary
 
-    # Question 3: Monthly trend & change
-    elif any(k in p for k in ["month", "trend", "monthly", "over time", "change month", "seasonality", "mom", "quarter"]):
+    # 5. Monthly Trend & Growth (Question 3)
+    elif any(k in p for k in ["month", "trend", "monthly", "over time", "change month", "seasonality", "mom", "quarter", "timeline"]):
         sql = """SELECT 
     sales_month,
     total_revenue,
@@ -197,35 +218,51 @@ ORDER BY sales_month ASC;"""
         summary = "Querying `fct_sales_monthly` to track monthly revenue trajectory and Month-over-Month (MoM) growth."
         return sql, chart_type, summary
 
-    # Bonus Question 4: Category revenue breakdown
+    # 6. Category Revenue Contribution
     elif any(k in p for k in ["category", "categories", "department"]):
         sql = """SELECT 
     category,
     ROUND(SUM(total_revenue), 2) AS category_revenue,
     SUM(total_units_sold) AS total_units_sold,
-    COUNT(product_name) AS product_count
+    COUNT(product_name) AS product_count,
+    ROUND(SUM(total_revenue) * 100.0 / (SELECT SUM(total_revenue) FROM retail_analytics.dim_products_sales), 2) AS revenue_share_pct
 FROM retail_analytics.dim_products_sales
 GROUP BY category
 ORDER BY category_revenue DESC;"""
         chart_type = "bar_category"
-        summary = "Aggregating `dim_products_sales` to examine category-level revenue contributions."
+        summary = "Aggregating `dim_products_sales` by category to compute revenue share percentages."
         return sql, chart_type, summary
 
-    # Bonus Question 5: Payment status breakdown
+    # 7. Payment Status & Refund Analysis
     elif any(k in p for k in ["payment", "status", "refund", "pending", "completed"]):
         sql = """SELECT 
     payment_status,
     COUNT(*) AS total_transactions,
     ROUND(SUM(revenue), 2) AS total_amount,
-    ROUND(AVG(revenue), 2) AS avg_transaction_value
+    ROUND(AVG(revenue), 2) AS avg_transaction_value,
+    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM retail_staging.stg_retail_sales), 2) AS transaction_share_pct
 FROM retail_staging.stg_retail_sales
 GROUP BY payment_status
 ORDER BY total_amount DESC;"""
         chart_type = "bar_payment"
-        summary = "Querying `stg_retail_sales` to inspect transaction counts and dollar volumes by payment status."
+        summary = "Querying `stg_retail_sales` to inspect transaction counts, dollar volume, and refund rates."
         return sql, chart_type, summary
 
-    # Default fallback
+    # 8. Top Products by Volume (Units Sold)
+    elif any(k in p for k in ["units", "quantity", "volume", "most sold", "units sold"]):
+        sql = """SELECT 
+    product_name,
+    category,
+    total_units_sold,
+    total_revenue,
+    total_orders
+FROM retail_analytics.dim_products_sales
+ORDER BY total_units_sold DESC;"""
+        chart_type = "bar_units"
+        summary = "Querying `dim_products_sales` ranked by total physical units sold."
+        return sql, chart_type, summary
+
+    # Default fallback: Top 5 overview
     else:
         sql = """SELECT 
     product_name,
@@ -237,7 +274,7 @@ FROM retail_analytics.dim_products_sales
 ORDER BY total_revenue DESC
 LIMIT 5;"""
         chart_type = "bar_product"
-        summary = "Top 5 products by revenue overview."
+        summary = "Displaying top 5 products by gross revenue."
         return sql, chart_type, summary
 
 # ---------------------------------------------------------------------------
@@ -245,14 +282,15 @@ LIMIT 5;"""
 # ---------------------------------------------------------------------------
 st.markdown("""
 <div class="hero-banner">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
         <div>
-            <h1>⚡ RetailFlow Analytics</h1>
-            <p><strong>Modern Automated Data Pipeline & Conversational BI</strong> | Orchestrated with Airflow, Airbyte, dbt & Cloud DWH</p>
+            <h1>⚡ RetailPulse AI</h1>
+            <p><strong>Enterprise Modern Automated Data Pipeline & Conversational Intelligence</strong><br>
+            Orchestrated with Apache Airflow &bull; Ingestion via Airbyte &bull; In-Warehouse Transformations via dbt &bull; Multi-Cloud Warehouse</p>
         </div>
-        <div style="text-align: right;">
-            <span class="status-badge-success">● Pipeline Live</span><br>
-            <span style="font-size: 0.8rem; color: #94a3b8;">Warehouse: DuckDB / Snowflake / BigQuery</span>
+        <div style="text-align: right; margin-top: 10px;">
+            <span class="status-badge-success">● Pipeline Operational</span><br>
+            <span style="font-size: 0.82rem; color: #cbd5e1;">Target: Snowflake / BigQuery / DuckDB</span>
         </div>
     </div>
 </div>
@@ -277,7 +315,7 @@ col1, col2, col3, col4 = st.columns(4)
 with col1:
     st.markdown(f"""
     <div class="kpi-card">
-        <div class="kpi-title">Gross Warehouse Revenue</div>
+        <div class="kpi-title">Gross Pipeline Revenue</div>
         <div class="kpi-value">${total_rev:,.2f}</div>
         <div class="kpi-sub">▲ 100% Validated in Marts</div>
     </div>
@@ -316,38 +354,38 @@ st.markdown("<div style='margin-bottom: 20px;'></div>", unsafe_allow_html=True)
 # SIDEBAR CONFIGURATION
 # ---------------------------------------------------------------------------
 with st.sidebar:
-    st.image("https://img.icons8.com/isometric/100/database.png", width=64)
-    st.markdown("### **Data Pipeline Navigator**")
-    st.markdown("""
-    **Microproject:** Data Engineering  
-    **Evaluation Marks:** 5.0  
-    **Architecture:**  
-    - **Extract & Load:** Airbyte  
-    - **Transform:** dbt Core (Models & Tests)  
-    - **Orchestrate:** Apache Airflow  
-    - **Target Warehouse:** Medallion DW  
-    - **Consumption:** Conversational BI  
+    st.markdown("### ⚡ **RetailPulse Navigator**")
+    st.caption("**Data Engineering Microproject** | 5.0 Marks")
+    st.info("""
+    **Core Architecture:**
+    - **Ingestion:** Airbyte / Source CSV
+    - **Transformations:** dbt Core (Models & Tests)
+    - **Orchestration:** Apache Airflow DAG
+    - **Warehouse:** Medallion Architecture
+    - **Consumption:** Streamlit Conversational BI
     """)
     st.divider()
 
-    st.markdown("#### ⚡ Quick Preset Questions")
+    st.markdown("#### 💡 Preset Business Questions")
     btn_q1 = st.button("🏆 1. Which product has highest revenue?", width='stretch')
     btn_q2 = st.button("🌍 2. Which region records highest sales?", width='stretch')
     btn_q3 = st.button("📈 3. How does revenue change month by month?", width='stretch')
     btn_q4 = st.button("📦 4. Revenue breakdown by category?", width='stretch')
-    btn_q5 = st.button("💳 5. Payment status breakdown?", width='stretch')
+    btn_q5 = st.button("💳 5. Payment status & refund breakdown?", width='stretch')
+    btn_q6 = st.button("📊 6. Overall Enterprise KPIs & Summary", width='stretch')
     
     st.divider()
-    st.caption("RetailFlow v2.0 | Connected to `warehouse/retail_dw.duckdb`")
+    st.caption("RetailPulse AI v2.2 | Connected to `warehouse/retail_dw.duckdb`")
 
 # ---------------------------------------------------------------------------
 # MAIN TABBED INTERFACE
 # ---------------------------------------------------------------------------
-tab_bi, tab_dwh, tab_dag, tab_docs = st.tabs([
+tab_bi, tab_dwh, tab_dag, tab_sql, tab_docs = st.tabs([
     "💬 Conversational BI Copilot",
     "🗄️ Medallion Warehouse Explorer",
     "⚙️ Airflow DAG Orchestrator",
-    "📚 Project Guidelines & Viva Guide"
+    "⚡ Interactive SQL Playground",
+    "📚 Architecture & Viva Guide"
 ])
 
 # Determine active prompt from preset buttons
@@ -362,6 +400,8 @@ elif btn_q4:
     selected_prompt = "What is the breakdown of revenue by category?"
 elif btn_q5:
     selected_prompt = "Show payment status breakdown"
+elif btn_q6:
+    selected_prompt = "What is the total revenue and overall KPI summary?"
 
 # ---------------------------------------------------------------------------
 # TAB 1: CONVERSATIONAL BI COPILOT
@@ -369,25 +409,33 @@ elif btn_q5:
 with tab_bi:
     col_chat, col_info = st.columns([3, 1])
     with col_info:
-        st.markdown("#### 💡 How to Query")
+        st.markdown("#### 🤖 How RetailPulse AI Works")
         st.info("""
-        Type any natural-language question or click the preset buttons in the sidebar.
-        
-        The engine automatically:
-        1. Translates English to SQL.
-        2. Queries `retail_analytics` tables.
-        3. Generates KPIs, charts, and data tables.
+        **Natural Language to SQL:**
+        1. Analyzes user intent & keywords.
+        2. Generates sanitized ANSI SQL.
+        3. Queries Gold analytics marts.
+        4. Renders Plotly visuals & takeaways.
+        """)
+        st.markdown("#### 🎯 Example Prompts")
+        st.markdown("""
+        - *Which product has the highest revenue?*
+        - *Which region records the highest sales?*
+        - *How does revenue change month by month?*
+        - *Show revenue by category*
+        - *Payment status breakdown*
+        - *What is total revenue?*
         """)
         
     with col_chat:
-        st.markdown("### 💬 Conversational BI Chat")
+        st.markdown("### 💬 Conversational BI Assistant")
         
         # Initialize session chat messages
         if "messages" not in st.session_state:
             st.session_state.messages = [
                 {
                     "role": "assistant",
-                    "content": "👋 **Welcome! I'm your Conversational BI Copilot.**\n\nAsk me any business question regarding product revenue, regional performance, or monthly growth trends.",
+                    "content": "👋 **Welcome to RetailPulse AI!**\n\nI am your conversational business intelligence copilot connected to the retail data warehouse. Ask me any question regarding product rankings, regional sales performance, or monthly growth trajectories.",
                     "meta": None
                 }
             ]
@@ -412,7 +460,7 @@ with tab_bi:
                 st.markdown(f"**{active_query}**")
 
             with st.chat_message("assistant"):
-                with st.spinner("Analyzing business question, generating SQL, and querying warehouse..."):
+                with st.spinner("RetailPulse AI is generating SQL and querying warehouse..."):
                     sql, chart_type, summary = nl_to_sql_intent(active_query)
                     df, duration_ms = execute_query(sql)
 
@@ -420,10 +468,9 @@ with tab_bi:
                     fig = None
                     if chart_type == "bar_product":
                         top_item = df.iloc[0]
-                        answer = f"""🏆 **Key Business Insight:**  
-The top-grossing product is **{top_item['product_name']}**, generating **${top_item['total_revenue']:,.2f}** in gross sales across **{top_item['total_orders']} orders** ({int(top_item['total_units_sold'])} units sold)."""
+                        answer = f"""🏆 **Key Business Takeaway:**  
+The top-grossing product in this selection is **{top_item['product_name']}**, generating **${top_item['total_revenue']:,.2f}** in gross sales across **{top_item['total_orders']} orders** ({int(top_item['total_units_sold'])} units shipped)."""
                         
-                        # Plotly Bar Chart
                         fig = px.bar(
                             df, 
                             x="product_name", 
@@ -437,11 +484,10 @@ The top-grossing product is **{top_item['product_name']}**, generating **${top_i
                         fig.update_layout(template="plotly_white", xaxis_tickangle=-30, height=380)
 
                     elif chart_type == "donut_region":
-                        top_reg = df.iloc[0]
-                        answer = f"""🌍 **Key Business Insight:**  
-**{top_reg['region']}** is the #1 market, delivering **${top_reg['total_revenue']:,.2f}** ({top_reg['total_orders']} orders) with an Average Order Value (AOV) of **${top_reg['avg_order_value']:,.2f}**."""
+                        top_reg_item = df.iloc[0]
+                        answer = f"""🌍 **Key Business Takeaway:**  
+**{top_reg_item['region']}** is the leading market, delivering **${top_reg_item['total_revenue']:,.2f}** ({top_reg_item['total_orders']} orders) with an Average Order Value (AOV) of **${top_reg_item['avg_order_value']:,.2f}**."""
                         
-                        # Plotly Donut Chart
                         fig = px.pie(
                             df, 
                             names="region", 
@@ -454,15 +500,14 @@ The top-grossing product is **{top_item['product_name']}**, generating **${top_i
 
                     elif chart_type == "area_monthly":
                         max_m = df.loc[df["total_revenue"].idxmax()]
-                        answer = f"""📈 **Key Business Insight:**  
-Revenue peaked in **{max_m['sales_month']}** at **${max_m['total_revenue']:,.2f}** with a surge during holiday sales in December."""
+                        answer = f"""📈 **Key Business Takeaway:**  
+Revenue peaked in **{max_m['sales_month']}** at **${max_m['total_revenue']:,.2f}** with strong seasonal acceleration during Q4 holiday shopping."""
                         
-                        # Plotly Area / Line Chart
                         fig = px.area(
                             df, 
                             x="sales_month", 
                             y="total_revenue",
-                            title="Monthly Revenue Trend (2024)",
+                            title="Chronological Monthly Revenue Trend (2024)",
                             labels={"sales_month": "Month", "total_revenue": "Revenue ($)"},
                             markers=True,
                             color_discrete_sequence=["#0284c7"]
@@ -470,49 +515,67 @@ Revenue peaked in **{max_m['sales_month']}** at **${max_m['total_revenue']:,.2f}
                         fig.update_layout(template="plotly_white", height=380)
 
                     elif chart_type == "bar_category":
-                        answer = f"""📦 **Key Business Insight:**  
-Category breakdown shows **{df.iloc[0]['category']}** generating the largest market share at **${df.iloc[0]['category_revenue']:,.2f}**."""
+                        top_cat = df.iloc[0]
+                        answer = f"""📦 **Key Business Takeaway:**  
+**{top_cat['category']}** is the dominant category, contributing **${top_cat['category_revenue']:,.2f}** ({top_cat['revenue_share_pct']}% of gross revenue) across {int(top_cat['total_units_sold'])} units."""
                         fig = px.bar(
                             df, 
                             x="category", 
                             y="category_revenue",
                             color="category",
-                            title="Revenue by Product Category",
-                            text_auto=".2s"
+                            title="Revenue Breakdown by Product Category",
+                            text_auto=".2s",
+                            color_discrete_sequence=px.colors.qualitative.Bold
                         )
                         fig.update_layout(template="plotly_white", height=350)
 
                     elif chart_type == "bar_payment":
                         comp = df[df["payment_status"] == "Completed"].iloc[0]
-                        answer = f"""💳 **Key Business Insight:**  
-**Completed transactions** account for **${comp['total_amount']:,.2f}** across **{comp['total_transactions']} orders**."""
+                        answer = f"""💳 **Key Business Takeaway:**  
+**Completed transactions** represent **${comp['total_amount']:,.2f}** ({comp['transaction_share_pct']}% of all orders). Refunded orders account for a minimal loss margin."""
                         fig = px.bar(
                             df, 
                             x="payment_status", 
                             y="total_amount",
                             color="payment_status",
                             title="Dollar Volume by Payment Status",
-                            text_auto=".2s"
+                            text_auto=".2s",
+                            color_discrete_sequence=px.colors.qualitative.Safe
                         )
                         fig.update_layout(template="plotly_white", height=350)
-                    
-                    # Display response in UI
+
+                    elif chart_type == "metric_summary":
+                        tot = df.iloc[0]
+                        answer = f"""📊 **Enterprise Retail Summary:**  
+Total Gross Pipeline Revenue stands at **${tot['total_gross_revenue']:,.2f}** across **{tot['total_completed_orders']} total orders** with an average order value of **${tot['overall_avg_order_value']:,.2f}**."""
+
+                    else:
+                        answer = "Query executed successfully against the target data warehouse."
+
+                    # Display badges and metadata
                     st.markdown(f"""
                     <span class="query-badge">⚡ Executed in {duration_ms}ms</span>
-                    <span class="status-badge-success">Source: dbt Marts</span>
+                    <span class="status-badge-success">Target: retail_analytics</span>
                     """, unsafe_allow_html=True)
                     
-                    st.markdown(f"**Intent:** {summary}")
+                    st.markdown(f"**Intent Recognized:** {summary}")
                     st.code(sql, language="sql")
                     st.markdown(answer)
                     
                     if fig:
                         st.plotly_chart(fig, width='stretch')
                     
-                    with st.expander("🔍 View Tabular Data", expanded=True):
+                    with st.expander("🔍 View Tabular Data & Export", expanded=True):
                         st.dataframe(df, width='stretch')
+                        csv_data = df.to_csv(index=False).encode('utf-8')
+                        st.download_button(
+                            label="📥 Export Query Result (CSV)",
+                            data=csv_data,
+                            file_name=f"retailpulse_query_result_{int(time.time())}.csv",
+                            mime="text/csv"
+                        )
 
-                    # Save to state
+                    # Save to chat history
                     st.session_state.messages.append({
                         "role": "assistant",
                         "content": f"{answer}\n\n```sql\n{sql}\n```",
@@ -526,14 +589,13 @@ Category breakdown shows **{df.iloc[0]['category']}** generating the largest mar
 with tab_dwh:
     st.markdown("### 🗄️ Target Data Warehouse: Medallion Architecture")
     st.markdown("""
-    Explore records in each tier of the data warehouse:
-    - **Bronze (Raw):** Exact landing tables populated by Airbyte.
-    - **Silver (Staging):** Cleaned, type-standardized, and verified view created by dbt.
-    - **Gold (Marts):** Aggregated dimensional and fact models powering BI analytics.
+    Explore records in each tier of the enterprise data warehouse:
+    - **Bronze Tier (Raw):** Exact landing tables populated by Airbyte source synchronization.
+    - **Silver Tier (Staging):** Cleaned, type-standardized views created and tested by dbt.
+    - **Gold Tier (Marts):** Dimensional and fact models powering RetailPulse AI analytics.
     """)
     
     con = get_db()
-    
     selected_layer = st.segmented_control(
         "Select Layer to Inspect:",
         options=[
@@ -548,19 +610,19 @@ with tab_dwh:
     
     if "1. Raw" in selected_layer:
         query = "SELECT * FROM retail_raw.raw_retail_sales LIMIT 100;"
-        table_desc = "Landing zone: untransformed raw text records directly ingested from `retail_sales_raw.csv`."
+        table_desc = "Landing zone: untransformed raw text records directly ingested from retail_sales_raw.csv."
     elif "2. dbt Staging" in selected_layer:
         query = "SELECT * FROM retail_staging.stg_retail_sales LIMIT 100;"
-        table_desc = "Cleaned view: data types cast, nulls checked, `revenue = quantity * unit_price` computed."
+        table_desc = "Cleaned view: data types cast, nulls checked, revenue = quantity * unit_price computed."
     elif "3. Product" in selected_layer:
         query = "SELECT * FROM retail_analytics.dim_products_sales;"
-        table_desc = "Analytics mart: product-level aggregates answering Question 1."
+        table_desc = "Analytics mart: product-level aggregates answering Business Question 1."
     elif "4. Regional" in selected_layer:
         query = "SELECT * FROM retail_analytics.dim_regional_performance;"
-        table_desc = "Analytics mart: geographical metrics and AOV answering Question 2."
+        table_desc = "Analytics mart: geographical metrics and AOV answering Business Question 2."
     else:
         query = "SELECT * FROM retail_analytics.fct_sales_monthly;"
-        table_desc = "Analytics fact mart: chronological revenue and MoM growth answering Question 3."
+        table_desc = "Analytics fact mart: chronological revenue and MoM growth answering Business Question 3."
 
     df_view = con.execute(query).df()
     total_in_tbl = len(df_view)
@@ -569,6 +631,14 @@ with tab_dwh:
     st.caption(f"ℹ️ **Description:** {table_desc}")
     st.markdown(f"**Query Executed:** `{query}` | **Retrieved:** `{total_in_tbl} rows`")
     st.dataframe(df_view, width='stretch')
+    
+    csv_export = df_view.to_csv(index=False).encode('utf-8')
+    st.download_button(
+        label="📥 Download Layer Data as CSV",
+        data=csv_export,
+        file_name=f"retailpulse_layer_export.csv",
+        mime="text/csv"
+    )
 
 # ---------------------------------------------------------------------------
 # TAB 3: AIRFLOW DAG ORCHESTRATOR MONITOR
@@ -590,13 +660,12 @@ start >> trigger_airbyte_ingestion >> wait_for_ingestion_sync
         """, language="python")
 
     with col_dag_run:
-        st.markdown("#### Run Pipeline")
+        st.markdown("#### On-Demand Pipeline Trigger")
         st.caption("Click to trigger a manual DAG run and view execution logs.")
         run_btn = st.button("🚀 Trigger Airflow DAG Run", width='stretch')
 
     if run_btn:
         with st.status("Executing Airflow DAG Tasks in Sequence...", expanded=True) as status:
-            from orchestration.run_airflow_simulation import execute_dag
             st.write("1️⃣ [start] Initializing pipeline run...")
             time.sleep(0.3)
             st.write("2️⃣ [trigger_airbyte_ingestion] Ingesting CSV records into warehouse raw layer...")
@@ -629,11 +698,39 @@ start >> trigger_airbyte_ingestion >> wait_for_ingestion_sync
     st.table(pd.DataFrame(tasks_data))
 
 # ---------------------------------------------------------------------------
-# TAB 4: PROJECT GUIDELINES & VIVA GUIDE
+# TAB 4: INTERACTIVE SQL PLAYGROUND
+# ---------------------------------------------------------------------------
+with tab_sql:
+    st.markdown("### ⚡ Interactive SQL Playground")
+    st.markdown("""
+    Execute custom ANSI SQL queries against any table or view in the warehouse.
+    Only `SELECT` queries are permitted by the security firewall.
+    """)
+    
+    sample_queries = {
+        "Top 3 Categories by Revenue": "SELECT category, ROUND(SUM(total_revenue), 2) AS revenue FROM retail_analytics.dim_products_sales GROUP BY category ORDER BY revenue DESC LIMIT 3;",
+        "Orders by Payment Status": "SELECT payment_status, COUNT(*) AS count, ROUND(SUM(revenue), 2) AS total_val FROM retail_staging.stg_retail_sales GROUP BY payment_status;",
+        "Monthly Growth Rates": "SELECT sales_month, total_revenue, mom_revenue_growth FROM retail_analytics.fct_sales_monthly;",
+        "Top 5 Products with High Quantity": "SELECT product_name, total_units_sold, total_revenue FROM retail_analytics.dim_products_sales ORDER BY total_units_sold DESC LIMIT 5;"
+    }
+    
+    preset_choice = st.selectbox("Load Sample Query:", list(sample_queries.keys()))
+    user_sql = st.text_area("SQL Editor:", value=sample_queries[preset_choice], height=120)
+    
+    if st.button("▶ Run SQL Query"):
+        try:
+            custom_df, custom_ms = execute_query(user_sql)
+            st.markdown(f"<span class='query-badge'>⚡ Executed in {custom_ms}ms</span> <span class='status-badge-success'>{len(custom_df)} rows returned</span>", unsafe_allow_html=True)
+            st.dataframe(custom_df, width='stretch')
+        except Exception as e:
+            st.error(f"SQL Execution Error: {e}")
+
+# ---------------------------------------------------------------------------
+# TAB 5: ARCHITECTURE & VIVA GUIDE
 # ---------------------------------------------------------------------------
 with tab_docs:
-    st.markdown("### 📚 Architecture Diagram, Guidelines & Viva Guide")
-    st.image("docs/architecture_diagram.png", caption="Modern Automated Data Pipeline Architecture (Airflow + Airbyte + dbt + Cloud DWH + Streamlit)", width='stretch')
+    st.markdown("### 📚 RetailPulse AI Architecture, Guidelines & Viva Guide")
+    st.image("docs/architecture_diagram.png", caption="RetailPulse AI Modern Automated Data Pipeline Architecture", width='stretch')
     
     st.markdown("#### 1. Alignment with Guidelines Criteria")
     criteria = [
@@ -642,7 +739,7 @@ with tab_docs:
         {"Criterion": "Data Ingestion", "Requirement": "Airbyte/Fivetran source to warehouse", "Status": "✅ Completed (Full Refresh / Append)"},
         {"Criterion": "dbt Transformations", "Requirement": "Staging + Marts + Tests (not null, unique)", "Status": "✅ Completed (1 staging, 3 marts, 3 tests)"},
         {"Criterion": "Airflow Orchestration", "Requirement": "DAG with start, ingestion, dbt, validation", "Status": "✅ Completed (8 sequential tasks)"},
-        {"Criterion": "Conversational BI", "Requirement": "Natural-language query answering 3 questions", "Status": "✅ Completed (Streamlit + Plotly)"}
+        {"Criterion": "Conversational BI", "Requirement": "Natural-language query answering 3 questions", "Status": "✅ Completed (RetailPulse Copilot)"}
     ]
     st.table(pd.DataFrame(criteria))
     
@@ -657,7 +754,7 @@ with tab_docs:
         **Answer:** The staging layer cleans and standardizes untransformed raw data. It casts string columns into proper data types (dates, decimals), handles null values, calculates row-level formulas (e.g. `revenue = quantity * unit_price`), and creates a trusted single source of truth for downstream analytical marts.
         """)
 
-    with st.expander("Q3: How does the Conversational BI interface safeguard against harmful SQL?"):
+    with st.expander("Q3: How does RetailPulse AI safeguard against harmful SQL?"):
         st.write("""
         **Answer:** The interface enforces read-only access. It sanitizes all incoming natural language translations by strictly permitting `SELECT` statements and blocking dangerous keywords such as `DROP`, `DELETE`, `UPDATE`, `ALTER`, and `TRUNCATE`.
         """)

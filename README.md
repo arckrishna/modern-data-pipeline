@@ -1,4 +1,4 @@
-# Modern Automated Data Pipeline: Retail Sales Analytics
+# RetailPulse AI: Modern Automated Data Pipeline
 
 > **Data Engineering Microproject (Group of 2 Members - 5 Marks)**  
 > **Tech Stack:** Apache Airflow &bull; Airbyte / Fivetran &bull; dbt (Data Build Tool) &bull; Snowflake / Google BigQuery / DuckDB &bull; Streamlit Conversational BI
@@ -7,7 +7,7 @@
 
 ## 🌟 Executive Summary
 
-This project implements an enterprise-grade **Modern Data Stack (MDS)** automated ETL pipeline. Orchestrated by **Apache Airflow**, raw transactional retail sales data is ingested into the warehouse raw layer via **Airbyte**, cleaned and transformed into dimensional and fact models via **dbt**, and served through an interactive **Streamlit Conversational BI** web interface that allows business managers to query insights using natural language.
+This project implements an enterprise-grade **Modern Data Stack (MDS)** automated ETL pipeline named **RetailPulse AI**. Orchestrated by **Apache Airflow**, raw transactional retail sales data is ingested into the warehouse raw layer via **Airbyte**, cleaned and transformed into dimensional and fact models via **dbt**, and served through an interactive **Streamlit Conversational BI** web interface that allows business managers to query insights using natural language.
 
 ---
 

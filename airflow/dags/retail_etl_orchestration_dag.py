@@ -1,6 +1,7 @@
 """
 =============================================================================
 Apache Airflow DAG: retail_modern_data_pipeline
+Platform: RetailPulse AI
 =============================================================================
 Orchestrates an enterprise Modern Data Stack ETL pipeline:
 1. Start Pipeline
@@ -13,7 +14,7 @@ Orchestrates an enterprise Modern Data Stack ETL pipeline:
 8. Finish Pipeline
 
 Task Dependencies:
-start >> trigger_airbyte_ingestion >> wait_for_ingestion >> run_dbt_staging
+start >> trigger_airbyte_ingestion >> wait_for_ingestion_sync >> run_dbt_staging
       >> test_dbt_staging >> run_dbt_analytics_marts >> validate_warehouse_output >> finish
 =============================================================================
 """
@@ -21,13 +22,18 @@ start >> trigger_airbyte_ingestion >> wait_for_ingestion >> run_dbt_staging
 from datetime import datetime, timedelta
 import os
 import sys
+import subprocess
+
+# Ensure project root is in sys.path
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
 
 # Airflow imports with graceful fallback for standalone execution
 try:
     from airflow import DAG
     from airflow.operators.empty import EmptyOperator
     from airflow.operators.python import PythonOperator
-    from airflow.operators.bash import BashOperator
     AIRFLOW_INSTALLED = True
 except ImportError:
     AIRFLOW_INSTALLED = False
@@ -48,35 +54,44 @@ DEFAULT_ARGS = {
 
 def task_trigger_ingestion(**context):
     """Task: Trigger data ingestion from source into the raw warehouse layer."""
-    print("[Airflow Task] Initiating raw data ingestion...")
-    script_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "ingestion", "load_raw_data.py")
-    res = os.system(f'python "{script_path}"')
-    if res != 0:
-        raise RuntimeError("Data ingestion failed!")
-    print("[Airflow Task] Ingestion completed successfully.")
+    print("[Airflow Task: trigger_airbyte_ingestion] Initiating raw data ingestion...")
+    script_path = os.path.join(PROJECT_ROOT, "ingestion", "load_raw_data.py")
+    res = subprocess.run([sys.executable, script_path], capture_output=True, text=True)
+    if res.returncode != 0:
+        print(f"Error output:\n{res.stderr}")
+        raise RuntimeError(f"Data ingestion failed with exit code {res.returncode}")
+    print(res.stdout)
+    print("[Airflow Task: trigger_airbyte_ingestion] Ingestion completed successfully.")
 
 def task_wait_for_ingestion(**context):
     """Task: Poll / confirm ingestion status."""
-    print("[Airflow Task] Verifying raw ingestion sync completion status...")
-    print("[Airflow Task] Raw sync confirmed: Status = SUCCESS.")
+    print("[Airflow Task: wait_for_ingestion_sync] Verifying raw ingestion sync completion status...")
+    import duckdb
+    dw_path = os.path.join(PROJECT_ROOT, "warehouse", "retail_dw.duckdb")
+    con = duckdb.connect(dw_path, read_only=True)
+    cnt = con.execute("SELECT COUNT(*) FROM retail_raw.raw_retail_sales").fetchone()[0]
+    con.close()
+    if cnt == 0:
+        raise RuntimeError("Ingestion validation failed: retail_raw.raw_retail_sales is empty!")
+    print(f"[Airflow Task: wait_for_ingestion_sync] Raw sync confirmed: {cnt} records present. Status = SUCCESS.")
 
 def task_run_dbt_staging(**context):
     """Task: Run dbt staging models."""
-    print("[Airflow Task] Executing dbt run --select staging...")
+    print("[Airflow Task: run_dbt_staging] Executing dbt run --select staging...")
     from transformations.run_dbt_transformations import run_staging
     if not run_staging():
         raise RuntimeError("dbt staging execution failed!")
 
 def task_test_dbt_staging(**context):
     """Task: Run dbt tests on staging models."""
-    print("[Airflow Task] Executing dbt test --select staging...")
+    print("[Airflow Task: test_dbt_staging] Executing dbt test --select staging...")
     from transformations.run_dbt_transformations import test_staging
     if not test_staging():
         raise RuntimeError("dbt data quality tests failed!")
 
 def task_run_dbt_marts(**context):
     """Task: Run dbt analytics marts."""
-    print("[Airflow Task] Executing dbt run --select marts...")
+    print("[Airflow Task: run_dbt_analytics_marts] Executing dbt run --select marts...")
     from transformations.run_dbt_transformations import run_marts
     if not run_marts():
         raise RuntimeError("dbt marts transformation failed!")
@@ -84,8 +99,8 @@ def task_run_dbt_marts(**context):
 def task_validate_warehouse(**context):
     """Task: Run final data sanity and consistency assertions on target warehouse."""
     import duckdb
-    dw_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "warehouse", "retail_dw.duckdb")
-    con = duckdb.connect(dw_path)
+    dw_path = os.path.join(PROJECT_ROOT, "warehouse", "retail_dw.duckdb")
+    con = duckdb.connect(dw_path, read_only=True)
     
     products_count = con.execute("SELECT COUNT(*) FROM retail_analytics.dim_products_sales").fetchone()[0]
     regional_count = con.execute("SELECT COUNT(*) FROM retail_analytics.dim_regional_performance").fetchone()[0]
@@ -103,18 +118,18 @@ def task_validate_warehouse(**context):
     assert regional_count > 0, "Regional mart is empty!"
     assert monthly_count > 0, "Monthly fact mart is empty!"
     assert total_rev > 0, "Total calculated revenue is non-positive!"
-    print("[Airflow Task] Target warehouse validation checks PASSED 100%.")
+    print("[Airflow Task: validate_warehouse_output] Target warehouse validation checks PASSED 100%.")
 
 # Standard Airflow DAG Declaration
 if AIRFLOW_INSTALLED:
     with DAG(
         dag_id=DAG_ID,
         default_args=DEFAULT_ARGS,
-        description="End-to-End Modern Data Pipeline Orchestration",
+        description="End-to-End Modern Data Pipeline Orchestration - RetailPulse AI",
         schedule_interval=SCHEDULE_INTERVAL,
         start_date=START_DATE,
         catchup=False,
-        tags=["retail", "airbyte", "dbt", "snowflake", "bigquery"],
+        tags=["retail", "airbyte", "dbt", "snowflake", "bigquery", "retailpulse"],
     ) as dag:
 
         start = EmptyOperator(task_id="start")

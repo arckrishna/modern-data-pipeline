@@ -5,7 +5,7 @@
 
 # 1. Project Information & Selected Business Scenario
 
-- **Project Title:** Design & Implementation of a Mini Modern Automated Data Pipeline with Airflow, Airbyte, dbt, and Conversational BI
+- **Project Title:** RetailPulse AI: Design & Implementation of a Mini Modern Automated Data Pipeline with Airflow, Airbyte, dbt, and Conversational BI
 - **Group Members:**
   - Member 1: [Student Name 1 / Roll No / ID]
   - Member 2: [Student Name 2 / Roll No / ID]

@@ -2,7 +2,7 @@
 ### DEPARTMENT OF COMPUTER ENGINEERING
 ## MICRO PROJECT REPORT
 
-**Project Title:** Modern Automated Data Pipeline with Apache Airflow, Airbyte, dbt, and Conversational BI  
+**Project Title:** RetailPulse AI: Modern Automated Data Pipeline with Apache Airflow, Airbyte, dbt, and Conversational BI  
 **SDG Aligned & Logo:** SDG 9: Industry, Innovation, and Infrastructure &bull; SDG 8: Decent Work and Economic Growth
 
 ---

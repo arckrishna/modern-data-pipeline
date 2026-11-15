@@ -17,7 +17,7 @@ ax.set_ylim(0, 10.5)
 ax.axis('off')
 
 # Title & Subtitle Banner
-ax.text(9, 10.0, "MODERN AUTOMATED DATA PIPELINE ARCHITECTURE", 
+ax.text(9, 10.0, "RETAILPULSE AI: MODERN AUTOMATED DATA PIPELINE", 
         fontsize=22, fontweight='bold', color='#ffffff', ha='center', va='center', fontfamily='sans-serif')
 ax.text(9, 9.55, "Data Engineering Microproject | Apache Airflow • Airbyte • dbt • Snowflake / BigQuery • Streamlit Conversational BI", 
         fontsize=12, color='#94a3b8', ha='center', va='center')
@@ -144,8 +144,8 @@ draw_box(x=7.6, y=0.08, w=5.8, h=0.85,
 # -------------------------------------------------------------
 draw_box(x=14.3, y=2.5, w=2.9, h=4.1,
          bg_color="#3b0764", border_color="#a855f7",
-         title="6. CONVERSATIONAL BI",
-         subtitle="Streamlit + Natural Language",
+         title="6. RETAILPULSE AI",
+         subtitle="Conversational BI & NLP",
          items=[
              "Natural Language -> SQL",
              "Safe Read-Only SELECT",
